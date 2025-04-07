@@ -21,6 +21,7 @@ const AppRouter: React.FC = () => {
                 <Flex align={"center"} gap={"15px"} >
                     <Image h={60} src={logo}></Image>
                     <Title order={1}>Digital Insect Passport - Home</Title>
+                    <Title>Deployed gh pages</Title>
                 </Flex>
                 <Flex align={"center"} gap={"15px"}>
                     <nav>
