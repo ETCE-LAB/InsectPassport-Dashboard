@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {LandingPage} from "./ui/LandingPage";
 import {Vizualisation} from "./ui/Vizualisation";
 import {Button, Flex, Image, Text, TextInput, Title} from "@mantine/core";
