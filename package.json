@@ -1,6 +1,6 @@
 {
   "name": "insect-passport",
-  "homepage": "https://etce-lab.github.io/InsectPassport-Dashboard",
+  "homepage": "https://jm-deerstone.github.io/InsectPassport-Dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,10 +14,10 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.126",
-    "node": "^23.1.0",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "embla-carousel-react": "^8.5.2",
+    "node": "^23.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.1",
@@ -27,8 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
