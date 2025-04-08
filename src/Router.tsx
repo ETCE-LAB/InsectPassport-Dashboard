@@ -4,8 +4,9 @@ import {LandingPage} from "./ui/LandingPage";
 import {Vizualisation} from "./ui/Vizualisation";
 import {Button, Flex, Image, Text, TextInput, Title} from "@mantine/core";
 import logo from "./util/logo.png";
-import FolderUploader from "./ui/testUI";
+import FolderUploader from "./ui/FolderUploader";
 import ProductPassport from "./ui/ProductPassport";
+import {TempView} from "./ui/tempView";
 
 // Define simple components for each route
 const Home: React.FC = () => <div><h2>Home Page</h2><p>Welcome to the home page.</p></div>;
@@ -21,7 +22,6 @@ const AppRouter: React.FC = () => {
                 <Flex align={"center"} gap={"15px"} >
                     <Image h={60} src={logo}></Image>
                     <Title order={1}>Digital Insect Passport - Home</Title>
-                    <Title>Deployed gh pages</Title>
                 </Flex>
                 <Flex align={"center"} gap={"15px"}>
                     <nav>
@@ -33,7 +33,7 @@ const AppRouter: React.FC = () => {
                                 <Link to="/about">About</Link>
                             </li>
                             <li>
-                                <Link to="/contact">Contact</Link>
+                                <Link to="/raw">raw</Link>
                             </li>
                             <li>
                                 <Link to="/ProductPassport">Product Passport</Link>
@@ -48,7 +48,7 @@ const AppRouter: React.FC = () => {
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/about" element={<Vizualisation/>}/>
-                <Route path="/contact" element={<FolderUploader />}/>
+                <Route path="/raw" element={<TempView />}/>
                 <Route path="/ProductPassport" element={<ProductPassport/>}/>
             </Routes>
 

@@ -5,6 +5,7 @@ import landingpage2 from "../util/landingpage2.png"
 import landingpage3 from "../util/landingpage3.png"
 import landingpage4 from "../util/landingpage4.png"
 import IPMPDropzone from "./FileUpload";
+import FolderUploader from "./FolderUploader";
 
 
 export const LandingPage = () => {
@@ -30,6 +31,7 @@ export const LandingPage = () => {
                 </Flex>
                 <Button>Scan Qr-Code</Button>
                 <IPMPDropzone></IPMPDropzone>
+                <FolderUploader></FolderUploader>
             </Flex>
         </Flex>
 

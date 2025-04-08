@@ -77,6 +77,7 @@ const FolderUploader: React.FC = () => {
                 setIpmpData(parsedData);
                 setDocuments(updatedDocuments);
                 localStorage.setItem("data", JSON.stringify(parsedData));
+                localStorage.setItem("documents", JSON.stringify(updatedDocuments))
             } catch (error) {
                 console.error('Error parsing JSON file:', error);
             }
