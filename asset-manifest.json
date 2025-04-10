@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/InsectPassport-Dashboard/static/css/main.2ad84568.css",
-    "main.js": "/InsectPassport-Dashboard/static/js/main.b5880957.js",
+    "main.js": "/InsectPassport-Dashboard/static/js/main.589ebdc6.js",
     "static/media/example.png": "/InsectPassport-Dashboard/static/media/example.d0888de3549fdf978186.png",
     "static/media/landingpage2.png": "/InsectPassport-Dashboard/static/media/landingpage2.86e1ba62c05db7ab5d53.png",
     "static/media/landingpage3.png": "/InsectPassport-Dashboard/static/media/landingpage3.ea7e1a1f9f913d8939e9.png",
@@ -9,10 +9,10 @@
     "static/media/landingpage1.png": "/InsectPassport-Dashboard/static/media/landingpage1.9da78b28e8950b4b3e91.png",
     "index.html": "/InsectPassport-Dashboard/index.html",
     "main.2ad84568.css.map": "/InsectPassport-Dashboard/static/css/main.2ad84568.css.map",
-    "main.b5880957.js.map": "/InsectPassport-Dashboard/static/js/main.b5880957.js.map"
+    "main.589ebdc6.js.map": "/InsectPassport-Dashboard/static/js/main.589ebdc6.js.map"
   },
   "entrypoints": [
     "static/css/main.2ad84568.css",
-    "static/js/main.b5880957.js"
+    "static/js/main.589ebdc6.js"
   ]
 }
