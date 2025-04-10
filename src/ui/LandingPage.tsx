@@ -1,18 +1,12 @@
 import {Flex, Image, TextInput, Title, Text, Button} from "@mantine/core";
-import logo from "../util/logo.png"
 import landingpage1 from "../util/landingpage1.png"
 import landingpage2 from "../util/landingpage2.png"
 import landingpage3 from "../util/landingpage3.png"
 import landingpage4 from "../util/landingpage4.png"
-import IPMPDropzone from "./FileUpload";
 import FolderUploader from "./FolderUploader";
 
 
 export const LandingPage = () => {
-
-
-
-
 
 
     return <>
@@ -30,7 +24,6 @@ export const LandingPage = () => {
                     <Button>Search</Button>
                 </Flex>
                 <Button>Scan Qr-Code</Button>
-                <IPMPDropzone></IPMPDropzone>
                 <FolderUploader></FolderUploader>
             </Flex>
         </Flex>

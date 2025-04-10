@@ -1,69 +1,86 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {LandingPage} from "./ui/LandingPage";
-import {Vizualisation} from "./ui/Vizualisation";
-import {Button, Flex, Image, Text, TextInput, Title} from "@mantine/core";
+import {AppShell, Burger, Button, Flex, Image, NavLink, Text, TextInput, Title} from "@mantine/core";
 import logo from "./util/logo.png";
-import FolderUploader from "./ui/FolderUploader";
 import ProductPassport from "./ui/ProductPassport";
 import {TempView} from "./ui/tempView";
-
-// Define simple components for each route
-const Home: React.FC = () => <div><h2>Home Page</h2><p>Welcome to the home page.</p></div>;
-const About: React.FC = () => <div><h2>About Page</h2><p>Learn more about us.</p></div>;
-const Contact: React.FC = () => <div><h2>Contact Page</h2><p>Get in touch with us.</p></div>;
-const Dashboard: React.FC = () => <div><h2>Dashboard</h2><p>This is your dashboard.</p></div>;
+import {SupplyChain} from "./ui/SupplyChain";
+import {useDisclosure} from "@mantine/hooks";
+import {IconHome2} from "@tabler/icons-react";
 
 // Main Router component
 const AppRouter: React.FC = () => {
+
+    const [opened, { toggle }] = useDisclosure();
+
     return (
-        <Router>
-            <Flex align={"center"} p={"15px"} bg={"lightgrey"} justify={"space-between"}>
-                <Flex align={"center"} gap={"15px"} >
-                    <Image h={60} src={logo}></Image>
-                    <Title order={1}>Digital Insect Passport - Home</Title>
+        <AppShell
+            header={{ height: 60 }}
+            footer={{ height: 60}}
+        >
+            <AppShell.Header>
+                <Flex align={"center"} bg={"lightgrey"} justify={"space-between"}>
+                    <Flex align={"center"} gap={"15px"} >
+                        <Image h={50} src={logo}></Image>
+                        <Title order={1}>Digital Insect Passport - Home</Title>
+                    </Flex>
+                    <Flex>
+                        <NavLink
+                            h={60}
+                            href="/"
+                            label="home"
+                        />
+                        <NavLink
+                            h={60}
+                            href="/ProductPassport"
+                            label="ProductPassport"
+                        />
+                        <NavLink
+                            h={60}
+                            href="/raw"
+                            label="raw"
+                        />
+                        <NavLink
+                            h={60}
+                            href="/SupplyChain"
+                            label="SupplyChain"
+                        />
+                    </Flex>
+
                 </Flex>
-                <Flex align={"center"} gap={"15px"}>
-                    <nav>
-                        <ul style={{listStyle: 'none', display: 'flex', gap: '1rem'}}>
-                            <li>
-                                <Link to="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link to="/about">About</Link>
-                            </li>
-                            <li>
-                                <Link to="/raw">raw</Link>
-                            </li>
-                            <li>
-                                <Link to="/ProductPassport">Product Passport</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <TextInput placeholder={"search"}></TextInput>
+            </AppShell.Header>
+
+
+            <AppShell.Main>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<LandingPage/>}/>
+                        <Route path="/SupplyChain" element={<SupplyChain/>}/>
+                        <Route path="/raw" element={<TempView />}/>
+                        <Route path="/ProductPassport" element={<ProductPassport/>}/>
+                    </Routes>
+                </Router>
+            </AppShell.Main>
+
+
+            <AppShell.Footer>
+                <Flex direction={"row"} gap={"15px"} p={"15px"}>
+                    <Button>About us</Button>
+                    <Button>Terms of service</Button>
+                    <Button>Privacy Policy</Button>
+                    <Text>|</Text>
+                    <Button>Twitter</Button>
+                    <Button>Facebook</Button>
+                    <Button>Instagram</Button>
+                    <Text>Email: support@test.com</Text>
+                    <Text>Phone: 0987654321</Text>
                 </Flex>
+            </AppShell.Footer>
 
-            </Flex>
 
-            <Routes>
-                <Route path="/" element={<LandingPage/>}/>
-                <Route path="/about" element={<Vizualisation/>}/>
-                <Route path="/raw" element={<TempView />}/>
-                <Route path="/ProductPassport" element={<ProductPassport/>}/>
-            </Routes>
+        </AppShell>
 
-            <Flex direction={"row"} gap={"15px"} p={"15px"}>
-                <Button>About us</Button>
-                <Button>Terms of service</Button>
-                <Button>Privacy Policy</Button>
-                <Text>|</Text>
-                <Button>Twitter</Button>
-                <Button>Facebook</Button>
-                <Button>Instagram</Button>
-                <Text>Email: support@test.com</Text>
-                <Text>Phone: 0987654321</Text>
-            </Flex>
-        </Router>
     );
 };
 

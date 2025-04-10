@@ -123,11 +123,19 @@ const ProductPassport: React.FC = () => {
                 </Flex>
 
                 <Flex w={"1000px"} gap={"60px"} mt={"60px"}>
-                    <Card w={"470px"} h={"300px"} shadow="sm" padding="lg" radius="md" withBorder>
-
-                    </Card>
-                    <Card w={"470px"} h={"300px"} shadow="sm" padding="lg" radius="md" withBorder>
-
+                    <Card w={"470px"} shadow="sm" padding="lg" radius="md" withBorder>
+                        <Title order={3}>Regulatory Compliance</Title>
+                        <Divider></Divider>
+                        {impData?.IPMP.regCertifs.map(reg => {
+                            return <>
+                                <Text>{reg.RegCertDescription}</Text>
+                                {reg.complianceCategories.map(cat => {
+                                    return <>
+                                        <Text>{cat.complianceName}</Text>
+                                    </>
+                                })}
+                            </>
+                        })}
                     </Card>
                 </Flex>
             </Flex>
