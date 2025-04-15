@@ -122,7 +122,9 @@ export const LandingPage = () => {
         <Flex direction={"row"} pt={"20px"} pb={"20px"} justify={"center"}>
             <Flex w={"1000px"} gap={"30px"} align={"center"}>
                 <Flex direction={"column"} align={"center"} gap={"15px"} w={"70%"}>
+
                     <Title order={2}>Supply chain</Title>
+
                     <Text>With the aid of the insights provided by the digital passport, enhanced traceability and more
                         efficient operations are advantageous to all supply chain participants. Farmers can document
                         and share detailed information about breeding practices and ensure adherence to European
