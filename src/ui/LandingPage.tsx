@@ -1,8 +1,9 @@
-import {Flex, Image, TextInput, Title, Text, Button} from "@mantine/core";
+import {Flex, Image, TextInput, Title, Text, Button, BackgroundImage, Overlay, AspectRatio} from "@mantine/core";
 import landingpage1 from "../util/landingpage1.png"
 import landingpage2 from "../util/landingpage2.png"
 import landingpage3 from "../util/landingpage3.png"
 import landingpage4 from "../util/landingpage4.png"
+import heroimg from "../util/bugs-you-can-eat-00-intro-722x406.jpg"
 import FolderUploader from "./FolderUploader";
 
 
@@ -11,21 +12,69 @@ export const LandingPage = () => {
 
     return <>
 
-        <Flex direction={"row"} justify={"center"} bg={"darkgrey"} pt={"15px"} pb={"15px"}>
-            <Flex w={"1000px"} direction={"column"} align={"center"}  gap={"15px"}>
-                <Title order={2}>Imported, Verfied, and Trusted Insect Meal</Title>
-                <Text>Ensuring sustainability throughout the food supply chain and compliance with European
-                    regulations, our Digital Product Passport aims to enhance acceptability of insect-derived
-                    protein sourced from developing countries. This initiative advocates for a sustainable
-                    alternative to conventional feed ingredients in the future food system.</Text>
-                <Text>Enter the product batch id or scan the QR code to trace its journey and sustainability impact.</Text>
-                <Flex direction={"row"} gap={"15px"}>
-                    <TextInput placeholder={"Enter Batch Number"}></TextInput>
-                    <Button>Search</Button>
+        <Flex direction={"row"} justify={"center"} pb={"15px"}
+        >
+
+            <AspectRatio ratio={16 / 9} style={{ position: "relative" }} w={"100%"}>
+                {/* Background image at zIndex=0 */}
+                <BackgroundImage
+                    src={heroimg}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 0,
+                    }}
+                />
+
+                {/* Dark overlay at zIndex=1 */}
+                <Overlay
+                    color="#000"
+                    opacity={0.85}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 1,
+                    }}
+                />
+
+                {/* Text/content container at zIndex=2 */}
+                <Flex
+                    direction="column"
+                    align="center"
+                    justify={"center"}
+                    gap="15px"
+                    style={{
+                        position: "relative",
+                        zIndex: 2,
+                        padding: "1rem",
+                        maxWidth: "1000px",
+                        margin: "0 auto",
+                    }}
+
+                >
+                    <Title c={"white"} order={2}>Imported, Verified, and Trusted Insect Meal</Title>
+                    <Text c={"white"}>
+                        Ensuring sustainability throughout the food supply chain and compliance
+                        with European regulations...
+                    </Text>
+                    <Text c={"white"}>
+                        Enter the product batch id or scan the QR code to trace its journey and...
+                    </Text>
+                    <Flex direction="row" gap="15px">
+                        <TextInput placeholder="Enter Batch Number" />
+                        <Button>Search</Button>
+                    </Flex>
+                    <Button>Scan Qr-Code</Button>
+                    <FolderUploader />
                 </Flex>
-                <Button>Scan Qr-Code</Button>
-                <FolderUploader></FolderUploader>
-            </Flex>
+            </AspectRatio>
+
         </Flex>
 
 
@@ -73,7 +122,9 @@ export const LandingPage = () => {
         <Flex direction={"row"} pt={"20px"} pb={"20px"} justify={"center"}>
             <Flex w={"1000px"} gap={"30px"} align={"center"}>
                 <Flex direction={"column"} align={"center"} gap={"15px"} w={"70%"}>
-                    <Title order={2}>Supply Chain</Title>
+
+                    <Title order={2}>Supply chain</Title>
+
                     <Text>With the aid of the insights provided by the digital passport, enhanced traceability and more
                         efficient operations are advantageous to all supply chain participants. Farmers can document
                         and share detailed information about breeding practices and ensure adherence to European
