@@ -6,6 +6,9 @@ import { TempView } from "./ui/tempView";
 import { SupplyChain } from "./ui/SupplyChain";
 import { useDisclosure } from "@mantine/hooks";
 import logo from "./util/logo.png";
+import {Regulation} from "./ui/Regulation";
+import {Sustainability} from "./ui/Sustainability";
+import {Quality} from "./ui/Quality";
 
 // Main component with internal state based routing
 const AppRouter: React.FC = () => {
@@ -26,6 +29,12 @@ const AppRouter: React.FC = () => {
                 return <TempView />;
             case "/ProductPassport":
                 return <ProductPassport />;
+            case "/regulation":
+                return <Regulation />;
+            case "/sustainability":
+                return <Sustainability />;
+            case "/quality":
+                return <Quality />;
             default:
                 return <LandingPage />;
         }
@@ -34,7 +43,7 @@ const AppRouter: React.FC = () => {
     return (
         <AppShell header={{ height: 60 }} footer={{ height: 60 }}>
             <AppShell.Header>
-                <Flex align="center" bg="lightgrey" justify="space-between">
+                <Flex align="center" bg="lightgrey" justify="space-between" h={"100%"}>
                     <Flex align="center" gap="15px">
                         <Image height={50} src={logo} alt="Logo" />
                         <Title order={1}>Digital Insect Passport - Home</Title>
@@ -43,8 +52,11 @@ const AppRouter: React.FC = () => {
                         {/* Using the onClick prop to update the route state */}
                         <NavLink label="Home" onClick={() => setRoute("/")} />
                         <NavLink label="ProductPassport" onClick={() => setRoute("/ProductPassport")} />
-                        <NavLink label="raw" onClick={() => setRoute("/raw")} />
                         <NavLink label="SupplyChain" onClick={() => setRoute("/SupplyChain")} />
+                        <NavLink label="regulation" onClick={() => setRoute("/regulation")} />
+                        <NavLink label="sustainability" onClick={() => setRoute("/sustainability")} />
+                        <NavLink label="quality" onClick={() => setRoute("/quality")} />
+                        <NavLink label="raw" onClick={() => setRoute("/raw")} />
                     </Flex>
                 </Flex>
             </AppShell.Header>
@@ -55,13 +67,13 @@ const AppRouter: React.FC = () => {
 
             <AppShell.Footer>
                 <Flex direction="row" gap="15px" p="15px">
-                    <Button>About us</Button>
-                    <Button>Terms of service</Button>
-                    <Button>Privacy Policy</Button>
+                    <Button variant={"subtle"}>About us</Button>
+                    <Button variant={"subtle"}>Terms of service</Button>
+                    <Button variant={"subtle"}>Privacy Policy</Button>
                     <Text>|</Text>
-                    <Button>Twitter</Button>
-                    <Button>Facebook</Button>
-                    <Button>Instagram</Button>
+                    <Button variant={"subtle"}>Twitter</Button>
+                    <Button variant={"subtle"}>Facebook</Button>
+                    <Button variant={"subtle"}>Instagram</Button>
                     <Text>Email: support@test.com</Text>
                     <Text>Phone: 0987654321</Text>
                 </Flex>

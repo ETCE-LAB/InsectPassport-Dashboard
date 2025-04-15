@@ -113,33 +113,6 @@ const FolderUploader: React.FC = () => {
                 {...({ webkitdirectory: "true" } as FolderInputProps)}
             />
 
-            {ipmpData && (
-                <div>
-                    <h3>Uploaded IPMP Data</h3>
-                    <pre style={{ background: "#f4f4f4", padding: "1rem" }}>
-            {JSON.stringify(ipmpData, null, 2)}
-          </pre>
-                </div>
-            )}
-
-            {documents.length > 0 && (
-                <div>
-                    <h3>PDF Documents</h3>
-                    <ul>
-                        {documents.map(({ doc, pdfUrl }, index) => (
-                            <li key={index} style={{ marginBottom: '0.5rem' }}>
-                                <strong>{doc.fileName}</strong>
-                                {" "}
-                                <button onClick={() => handleDownload(pdfUrl, doc.fileName)}>Download</button>
-                                {" "}
-                                <a href={pdfUrl} target="_blank" rel="noopener noreferrer">
-                                    View
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </div>
     );
 };
