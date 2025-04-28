@@ -1,7 +1,9 @@
 {
   "files": {
     "main.css": "/InsectPassport-Dashboard/static/css/main.6dfe831a.css",
-    "main.js": "/InsectPassport-Dashboard/static/js/main.df2512c2.js",
+    "main.js": "/InsectPassport-Dashboard/static/js/main.9a9602ed.js",
+    "static/js/977.92f56bc5.chunk.js": "/InsectPassport-Dashboard/static/js/977.92f56bc5.chunk.js",
+    "static/js/732.07651b0d.chunk.js": "/InsectPassport-Dashboard/static/js/732.07651b0d.chunk.js",
     "static/media/example.png": "/InsectPassport-Dashboard/static/media/example.d0888de3549fdf978186.png",
     "static/media/landingpage2.png": "/InsectPassport-Dashboard/static/media/landingpage2.86e1ba62c05db7ab5d53.png",
     "static/media/landingpage3.png": "/InsectPassport-Dashboard/static/media/landingpage3.ea7e1a1f9f913d8939e9.png",
@@ -10,10 +12,12 @@
     "static/media/bugs-you-can-eat-00-intro-722x406.jpg": "/InsectPassport-Dashboard/static/media/bugs-you-can-eat-00-intro-722x406.cbbac6e9918e22f59bf1.jpg",
     "index.html": "/InsectPassport-Dashboard/index.html",
     "main.6dfe831a.css.map": "/InsectPassport-Dashboard/static/css/main.6dfe831a.css.map",
-    "main.df2512c2.js.map": "/InsectPassport-Dashboard/static/js/main.df2512c2.js.map"
+    "main.9a9602ed.js.map": "/InsectPassport-Dashboard/static/js/main.9a9602ed.js.map",
+    "977.92f56bc5.chunk.js.map": "/InsectPassport-Dashboard/static/js/977.92f56bc5.chunk.js.map",
+    "732.07651b0d.chunk.js.map": "/InsectPassport-Dashboard/static/js/732.07651b0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6dfe831a.css",
-    "static/js/main.df2512c2.js"
+    "static/js/main.9a9602ed.js"
   ]
 }
