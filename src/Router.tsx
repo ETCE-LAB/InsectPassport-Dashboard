@@ -1,39 +1,57 @@
 import React, { useState } from 'react';
-import { AppShell, Button, Flex, Image, NavLink, Text, Title } from "@mantine/core";
-import { LandingPage } from "./ui/LandingPage";
-import ProductPassport from "./ui/ProductPassport";
-import { TempView } from "./ui/tempView";
-import { SupplyChain } from "./ui/SupplyChain";
-import { useDisclosure } from "@mantine/hooks";
-import logo from "./util/logo.png";
-import {Regulation} from "./ui/Regulation";
-import {Sustainability} from "./ui/Sustainability";
-import {Quality} from "./ui/Quality";
+import {
+    AppShell,
+    Button,
+    Flex,
+    Image,
+    NavLink,
+    Text,
+    Title,
+    useMantineTheme,
+} from '@mantine/core';
+import logo from './util/logo.png';
+import { LandingPage } from './ui/LandingPage';
+import ProductPassport from './ui/ProductPassport';
+import { TempView } from './ui/tempView';
+import { SupplyChain } from './ui/SupplyChain';
+import { Regulation } from './ui/Regulation';
+import { Sustainability } from './ui/Sustainability';
+import { Quality } from './ui/Quality';
 
-// Main component with internal state based routing
+interface RouteItem {
+    label: string;
+    path: string;
+}
+
+const navItems: RouteItem[] = [
+    { label: 'Home', path: '/' },
+    { label: 'Product Passport', path: '/ProductPassport' },
+    { label: 'Supply Chain', path: '/SupplyChain' },
+    { label: 'Regulation', path: '/regulation' },
+    { label: 'Sustainability', path: '/sustainability' },
+    { label: 'Quality', path: '/quality' },
+    //{ label: 'Raw Data', path: '/raw' },
+];
+
 const AppRouter: React.FC = () => {
-    // Retain the disclosure for potential UI interactions.
-    const [opened, { toggle }] = useDisclosure();
+    const theme = useMantineTheme();
+    const [route, setRoute] = useState<string>('/');
 
-    // Internal state to manage the current route.
-    const [route, setRoute] = useState<string>("/");
-
-    // Function to decide which component to render based on the current route.
     const renderContent = () => {
         switch (route) {
-            case "/":
+            case '/':
                 return <LandingPage />;
-            case "/SupplyChain":
+            case '/SupplyChain':
                 return <SupplyChain />;
-            case "/raw":
+            case '/raw':
                 return <TempView />;
-            case "/ProductPassport":
+            case '/ProductPassport':
                 return <ProductPassport />;
-            case "/regulation":
+            case '/regulation':
                 return <Regulation />;
-            case "/sustainability":
+            case '/sustainability':
                 return <Sustainability />;
-            case "/quality":
+            case '/quality':
                 return <Quality />;
             default:
                 return <LandingPage />;
@@ -41,39 +59,61 @@ const AppRouter: React.FC = () => {
     };
 
     return (
-        <AppShell header={{ height: 60 }} footer={{ height: 60 }}>
+        <AppShell
+            header={{ height: 60 }}
+            footer={{ height: 60 }}
+        >
             <AppShell.Header>
-                <Flex align="center" bg="lightgrey" justify="space-between" h={"100%"}>
+                <Flex
+                    align="center"
+                    bg="lightgray"
+                    justify="space-between"
+                    h="100%"
+                    px="md"
+                >
                     <Flex align="center" gap="15px">
                         <Image height={50} src={logo} alt="Logo" />
-                        <Title order={1}>Digital Insect Passport - Home</Title>
+                        <Title order={1}>Digital Insect Passport</Title>
                     </Flex>
-                    <Flex gap="10px">
-                        {/* Using the onClick prop to update the route state */}
-                        <NavLink label="Home" onClick={() => setRoute("/")} />
-                        <NavLink label="ProductPassport" onClick={() => setRoute("/ProductPassport")} />
-                        <NavLink label="SupplyChain" onClick={() => setRoute("/SupplyChain")} />
-                        <NavLink label="regulation" onClick={() => setRoute("/regulation")} />
-                        <NavLink label="sustainability" onClick={() => setRoute("/sustainability")} />
-                        <NavLink label="quality" onClick={() => setRoute("/quality")} />
-                        <NavLink label="raw" onClick={() => setRoute("/raw")} />
+                    <Flex gap="sm">
+                        {navItems.map(({ label, path }) => (
+                            <NavLink
+                                key={path}
+                                label={label}
+                                w={"auto"}
+                                onClick={() => setRoute(path)}
+                                active={route === path}
+                                styles={(theme) => ({
+                                    root: {
+                                        // draw a colored bar on the left when active
+                                        borderLeft: `4px solid ${
+                                            route === path
+                                                ? theme.colors.blue[6]
+                                                : 'transparent'
+                                        }`,
+                                        paddingLeft: theme.spacing.sm,
+                                    },
+                                    label: {
+                                        color:
+                                            route === path
+                                                ? theme.colors.blue[6]
+                                                : theme.colors.gray[7],
+                                    },
+                                })}
+                            />
+                        ))}
                     </Flex>
                 </Flex>
             </AppShell.Header>
 
-            <AppShell.Main>
-                {renderContent()}
-            </AppShell.Main>
+            <AppShell.Main>{renderContent()}</AppShell.Main>
 
             <AppShell.Footer>
-                <Flex direction="row" gap="15px" p="15px">
-                    <Button variant={"subtle"}>About us</Button>
-                    <Button variant={"subtle"}>Terms of service</Button>
-                    <Button variant={"subtle"}>Privacy Policy</Button>
+                <Flex direction="row" gap="15px" p="md" justify="center">
+                    <Button variant="subtle">About us</Button>
+                    <Button variant="subtle">Terms of service</Button>
+                    <Button variant="subtle">Privacy Policy</Button>
                     <Text>|</Text>
-                    <Button variant={"subtle"}>Twitter</Button>
-                    <Button variant={"subtle"}>Facebook</Button>
-                    <Button variant={"subtle"}>Instagram</Button>
                     <Text>Email: support@test.com</Text>
                     <Text>Phone: 0987654321</Text>
                 </Flex>

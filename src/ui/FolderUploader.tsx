@@ -74,6 +74,19 @@ const FolderUploader: React.FC = () => {
                     });
                 });
 
+                parsedData.IPMP.qualityAssessment.labTestReports.forEach(report => {
+                    report.documents?.forEach(doc => {
+                        const pdfUrl = getPdfUrlForDocument(doc);
+                        console.log(pdfUrl)
+                        if (pdfUrl){
+                            updatedDocuments.push({doc, pdfUrl})
+                        }
+                        fileArray.forEach(file => console.log(file.name))
+                        console.log("found lab report pdf")
+                    })
+                })
+
+                console.log(updatedDocuments)
                 setIpmpData(parsedData);
                 setDocuments(updatedDocuments);
                 localStorage.setItem("data", JSON.stringify(parsedData));

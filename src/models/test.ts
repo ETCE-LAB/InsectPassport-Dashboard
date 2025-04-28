@@ -90,6 +90,7 @@ export interface LabTestReport {
     amendment: string;
     labFacility: LabFacility;
     testParameters: TestParameter[];
+    documents: Document[];
 }
 
 export interface LabFacility {

@@ -4,17 +4,22 @@ import {
     Title,
     Text,
     Image,
-    Divider,
     Box,
     Paper,
-    Container,
-    Grid,
     useMantineTheme,
 } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import example from '../util/example.png';
 import { IPMPModel } from '../models/test';
-import {IconLeaf, IconMap2, IconRecycle} from "@tabler/icons-react";
+import {
+    IconAdjustments,
+    IconBuildingWarehouse,
+    IconDroplet,
+    IconLeaf,
+    IconMap2,
+    IconRecycle,
+    IconWheat
+} from "@tabler/icons-react";
 
 const ProductPassport: React.FC = () => {
     const [impData, setImpData] = useState<IPMPModel | null>(null);
@@ -30,13 +35,13 @@ const ProductPassport: React.FC = () => {
 
     return (
         <Flex direction={"column"} p={"15px"} w={"100%"}>
-            <Title order={2} mb="lg">
-                Product Passport Dashboard
+            <Title order={3}>
+                Product Identification
             </Title>
 
-            <Flex direction={"row"} w={"100%"} justify={"space-between"} align={"stretch"}>
+            <Flex direction={"row"} w={"100%"} justify={"space-between"} align={"stretch"} mb={theme.spacing.xl}>
 
-                <Flex direction={"column"} w={"33%"} >
+                <Flex direction={"column"} w={"49.6%"} >
                     <Paper
                         shadow="md"
                         radius="md"
@@ -47,10 +52,6 @@ const ProductPassport: React.FC = () => {
                             backgroundColor: theme.white,
                         }}
                     >
-                        <Title order={4} mb="sm">
-                            Product Identification
-                        </Title>
-                        <Divider mb="sm" />
                         <Text fw={500}>Name:</Text>
                         <Text mb="xs">{impData?.IPMP.insectProtein.insectName}</Text>
 
@@ -60,19 +61,19 @@ const ProductPassport: React.FC = () => {
                         <Text fw={500}>Batch Size:</Text>
                         <Text mb="xs">{impData?.IPMP.insectProtein.batchSize} g</Text>
 
-                        <Text fw={500} color="red">
-                            Processing Status:
-                        </Text>
-                        {/* If you have the status, display it here */}
-                        <Text fw={500} color="red">
+                        <Text fw={500}>
                             Manufacturing Date:
                         </Text>
+                        <Text mb="xs">{impData?.IPMP.insectProtein.specInfo.manufacturingDate}</Text>
+
+                        <Text fw={500}>Expiry date:</Text>
+                        <Text>{impData?.IPMP.insectProtein.specInfo.expiryDate}</Text>
                         {/* If you have the date, display it here */}
                     </Paper>
 
                 </Flex>
 
-                <Flex direction={"column"} w={"33%"} >
+                <Flex direction={"column"} w={"49.6%"} >
                     <Paper
                         shadow="md"
                         radius="md"
@@ -83,45 +84,7 @@ const ProductPassport: React.FC = () => {
                             backgroundColor: theme.white,
                         }}
                     >
-                        <Title order={4} mb="sm">
-                            Product Details
-                        </Title>
-                        <Divider mb="sm" />
-                        <Text fw={500}>Insect feed Type:</Text>
-                        <Text mb="xs">{impData?.IPMP.insectProtein.specInfo.feedType}</Text>
-
-                        <Text fw={500}>Insect feed Source:</Text>
-                        <Text mb="xs">
-                            {impData?.IPMP.insectProtein.specInfo.feedSource.join(', ')}
-                        </Text>
-
-                        <Text fw={500}>Feed conversion ratio:</Text>
-                        <Text mb="xs">
-                            {impData?.IPMP.insectProtein.specInfo.feedConversionRatio}
-                        </Text>
-
-                        <Text fw={500}>Manufacturing date:</Text>
-                        <Text mb="xs">
-                            {impData?.IPMP.insectProtein.specInfo.manufacturingDate}
-                        </Text>
-
-                        <Text fw={500}>Expiry date:</Text>
-                        <Text>{impData?.IPMP.insectProtein.specInfo.expiryDate}</Text>
-                    </Paper>
-                </Flex>
-
-                <Flex direction={"column"} w={"33%"} >
-                    <Paper
-                        shadow="md"
-                        radius="md"
-                        p="md"
-                        h={"100%"}
-                        withBorder
-                        style={{
-                            backgroundColor: theme.white,
-                        }}
-                    >
-                        <Carousel withIndicators height={250} mx="auto">
+                        <Carousel withIndicators height={"auto"} mx="auto">
                             <Carousel.Slide>
                                 <Image src={example} alt="Example" />
                             </Carousel.Slide>
@@ -156,7 +119,170 @@ const ProductPassport: React.FC = () => {
                 </Flex>
             </Flex>
 
-            <Flex direction={"row"} w={"100%"} justify={"stretch"}>
+
+            <Title order={3}>Rearing Phase</Title>
+            <Flex direction="row" w="100%" justify="space-between" mb={theme.spacing.xl}>
+
+                {/* Feed Info */}
+                <Flex direction="column" w="33%">
+                    <Paper
+                        shadow="md"
+                        radius="md"
+                        p="md"
+                        withBorder
+                        style={{ backgroundColor: theme.white }}
+                    >
+                        <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                            <IconWheat size={20} style={{ marginRight: 8 }} /> Feed Info
+                        </Title>
+                        <Text>Type: {impData?.IPMP.insectProtein.specInfo.feedType}</Text>
+                        <Text>
+                            Sources: {impData?.IPMP.insectProtein.specInfo.feedSource.join(', ')}
+                        </Text>
+                        <Text>
+                            Feed Conversion Ratio:{' '}
+                            {impData?.IPMP.insectProtein.specInfo.feedConversionRatio}
+                        </Text>
+                    </Paper>
+                </Flex>
+
+                {/* Rearing Conditions */}
+                <Flex direction="column" w="33%">
+                    <Paper
+                        shadow="md"
+                        radius="md"
+                        p="md"
+                        withBorder
+                        style={{ backgroundColor: theme.white }}
+                    >
+                        <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                            <IconAdjustments size={20} style={{ marginRight: 8 }} /> Rearing Conditions
+                        </Title>
+                        {impData?.IPMP.insectProtein.rearInfo.map((rearInfo, idx) => (
+                            <div key={idx}>
+                                <Text>
+                                    Method: {rearInfo.rearingMethodology.join(', ')}
+                                </Text>
+                                <Text>
+                                    Temperature: {rearInfo.rearingEnvCond.temperature}
+                                </Text>
+                                <Text>
+                                    Humidity: {rearInfo.rearingEnvCond.humidity}
+                                </Text>
+                                <Text>
+                                    Ventilation: {rearInfo.rearingEnvCond.ventilation}
+                                </Text>
+                            </div>
+                        ))}
+                    </Paper>
+                </Flex>
+
+                {/* Rearing Facility */}
+                <Flex direction="column" w="33%">
+                    <Paper
+                        shadow="md"
+                        radius="md"
+                        p="md"
+                        withBorder
+                        style={{ backgroundColor: theme.white }}
+                    >
+                        <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                            <IconBuildingWarehouse size={20} style={{ marginRight: 8 }} /> Rearing Facility
+                        </Title>
+                        {impData?.IPMP.insectProtein.rearInfo.map((rearInfo, idx) => (
+                            <div key={idx}>
+                                <Text>
+                                    Location: {rearInfo.rearingFacility.location}
+                                </Text>
+                                <Text>
+                                    Approval Number: {rearInfo.rearingFacility.approvalNumber}
+                                </Text>
+                                <Text>
+                                    Standards: {rearInfo.rearingFacility.standards}
+                                </Text>
+                            </div>
+                        ))}
+                    </Paper>
+                </Flex>
+
+            </Flex>
+
+            <Title order={3}>Processing phase</Title>
+            <Flex direction="row" w="100%" justify="space-between" mb={theme.spacing.xl}>
+
+                {/* Rearing Conditions */}
+                <Flex direction="column" w="49.6%">
+                    <Paper
+                        shadow="md"
+                        radius="md"
+                        p="md"
+                        withBorder
+                        style={{ backgroundColor: theme.white }}
+                    >
+                        <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                            <IconAdjustments size={20} style={{ marginRight: 8 }} /> Processing Info
+                        </Title>
+                        {impData?.IPMP.qualityAssessment.procFacility.processingMethods.map(method => {
+                            return <Text>{`${method.name}: ${method.temperature}, ${method.time} --> ${method.mealFormat}`}</Text>
+                        })}
+                    </Paper>
+                </Flex>
+
+                {/* Rearing Facility */}
+                <Flex direction="column" w="49.6%">
+                    <Paper
+                        shadow="md"
+                        radius="md"
+                        p="md"
+                        withBorder
+                        style={{ backgroundColor: theme.white }}
+                    >
+                        <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                            <IconBuildingWarehouse size={20} style={{ marginRight: 8 }} /> Processing Facility
+                        </Title>
+                        <Text>Location: {impData?.IPMP.qualityAssessment.procFacility.location}</Text>
+                        <Text>Approval Number: {impData?.IPMP.qualityAssessment.procFacility.approvalNumber}</Text>
+                        <Text>Standart: {impData?.IPMP.qualityAssessment.procFacility.standards}</Text>
+                    </Paper>
+                </Flex>
+
+            </Flex>
+
+            <Title order={3}>Quality & Safety</Title>
+            <Flex direction="row" w="100%" justify="space-between" mb={theme.spacing.xl}>
+
+                {/* Rearing Conditions */}
+                <Flex direction="column" w="100%">
+                    <Paper
+                        shadow="md"
+                        radius="md"
+                        p="md"
+                        withBorder
+                        style={{ backgroundColor: theme.white }}
+                    >
+                        <Text>Assessed: {impData?.IPMP.qualityAssessment.assessDate}</Text>
+                        <Text>Health Monitoring: {impData?.IPMP.insectProtein.rearInfo.map(info => {
+                            return <>{info.diseaseMonitoring}</>
+                        })}</Text>
+                        <Text>Biosecuriuty Measures: {impData?.IPMP.insectProtein.rearInfo.map(info => {
+                            return <>{info.biosecurityMeasures}</>
+                        })}</Text>
+                        <Text>Testing Labs: {impData?.IPMP.qualityAssessment.labTestReports.map(testReport => {
+                            return <>{testReport.labFacility.labName + ", "}</>
+                        })}</Text>
+                        <Text>Screening: {impData?.IPMP.qualityAssessment.labTestReports.map(testReport => {
+                            return <>{testReport.testName + ", "}</>
+                        })}</Text>
+                        <Text>Handling: {impData?.IPMP.qualityAssessment.storeHandleReq.handlingRequirement}</Text>
+                        <Text>Storage: {impData?.IPMP.qualityAssessment.storeHandleReq.storageCond} {"-->"} {impData?.IPMP.qualityAssessment.storeHandleReq.shelfExpirationPeriod}</Text>
+                    </Paper>
+                </Flex>
+            </Flex>
+
+            <Title order={3}>
+                Sustainability Impact
+            </Title>
+            <Flex direction={"row"} w={"100%"} justify={"stretch"} mb={theme.spacing.xl}>
                 <Paper
                     w={"100%"}
                     shadow="md"
@@ -164,14 +290,9 @@ const ProductPassport: React.FC = () => {
                     p="md"
                     withBorder
                     style={{
-                        marginTop: theme.spacing.xl,
                         backgroundColor: theme.white,
                     }}
                 >
-                    <Title order={4} mb="sm">
-                        Sustainability Impact
-                    </Title>
-                    <Divider mb="sm" />
                     <Flex direction={"row"} justify={"space-around"} align={"center"}>
                         <Flex direction={"column"} align={"center"}>
                             <Flex direction={"row"} align={"center"}>
@@ -182,6 +303,17 @@ const ProductPassport: React.FC = () => {
                                 {impData?.IPMP.SustainabilityReq.environmentalImpact.carbonFootprint}
                             </Title>
                         </Flex>
+
+                        <Flex direction={"column"} align={"center"}>
+                            <Flex direction={"row"} align={"center"}>
+                                <IconDroplet color={"blue"} size={50} />
+                                <Text fw={500}>Resource Use</Text>
+                            </Flex>
+                            <Title order={5}>
+                                {impData?.IPMP.SustainabilityReq.resourceUse.waterFootprint}
+                            </Title>
+                        </Flex>
+
                         <Flex direction={"column"} align={"center"}>
                             <Flex direction={"row"} align={"center"}>
                                 <IconMap2 size={50} color={"brown"}/>
@@ -192,13 +324,14 @@ const ProductPassport: React.FC = () => {
                                 {impData?.IPMP.SustainabilityReq.environmentalImpact.landUse}
                             </Title>
                         </Flex>
+
                         <Flex direction={"column"} align={"center"}>
                             <Flex direction={"row"} align={"center"}>
                                 <IconRecycle color={"orange"} size={50} />
-                                <Text fw={500}>Waste Management</Text>
+                                <Text fw={500}>Circularity</Text>
                             </Flex>
                             <Title order={5}>
-                                {impData?.IPMP.SustainabilityReq.environmentalImpact.wasteManagement}
+                                {impData?.IPMP.SustainabilityReq.circularity.wasteReductionStrategy}
                             </Title>
                         </Flex>
                     </Flex>
@@ -206,138 +339,56 @@ const ProductPassport: React.FC = () => {
                 </Paper>
             </Flex>
 
-            <Flex direction={"row"} w={"100%"} justify={"space-between"} mt={theme.spacing.xl}>
+            <Title order={3}>
+                Transparency
+            </Title>
+            <Flex direction={"row"} w={"100%"} justify={"space-between"}>
+                <Paper
+                    w={"33%"}
+                    shadow="md"
+                    radius="md"
+                    p="md"
+                    withBorder
+                    style={{
+                        backgroundColor: theme.white,
+                    }}
+                >
+                    <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                        <IconBuildingWarehouse size={20} style={{ marginRight: 8 }} /> Compliance
+                    </Title>
 
-                <Flex direction={"column"} w={"33%"}>
-                    <Paper
-                        shadow="md"
-                        radius="md"
-                        p="md"
-                        withBorder
-                        style={{
-                            backgroundColor: theme.white,
-                        }}
-                    >
-                        <Title order={4} mb="sm">
-                            Processing Details
-                        </Title>
-                        <Divider mb="sm" />
-                        <Text fw={500}>Processing facility:</Text>
-                        <Text mb="xs">
-                            {impData?.IPMP.qualityAssessment.procFacility.location}
-                        </Text>
+                    {impData?.IPMP.regCertifs.map(cert => {
+                        return <>{cert.complianceCategories.map(cat => {
+                            return <Flex align={"center"}>
+                                Check {cat.complianceName}
+                            </Flex>
+                        })}</>
+                    })}
 
-                        <Text fw={500}>Approval number:</Text>
-                        <Text mb="xs">
-                            {impData?.IPMP.qualityAssessment.procFacility.approvalNumber}
-                        </Text>
+                </Paper>
 
-                        <Text fw={500}>Standard:</Text>
-                        <Text mb="xs">
-                            {impData?.IPMP.qualityAssessment.procFacility.standards}
-                        </Text>
+                <Paper
+                    w={"66%"}
+                    shadow="md"
+                    radius="md"
+                    p="md"
+                    withBorder
+                    style={{
+                        backgroundColor: theme.white,
+                    }}
+                >
+                    <Title order={5} style={{ display: 'flex', alignItems: 'center' }}>
+                        <IconBuildingWarehouse size={20} style={{ marginRight: 8 }} /> Logistics Insights
+                    </Title>
 
-                        <Text fw={500} mb="xs">
-                            Processing methods:
-                        </Text>
-                        {impData?.IPMP.qualityAssessment.procFacility.processingMethods.map(
-                            (method, index) => (
-                                <Text key={index} mb="xs">
-                                    {method.name} | {method.temperature} - {method.mealFormat}
-                                </Text>
-                            )
-                        )}
-                    </Paper>
-                </Flex>
+                    {impData?.IPMP.supplyChain.traceLog.map(log => {
+                        return <Text>{`${log.actorRole}: ${log.companyName}, ${log.location} -> ${log.logistics.mode}`}</Text>
+                    })}
 
-                <Flex direction={"column"} w={"33%"}>
-                    <Paper
-                        shadow="md"
-                        radius="md"
-                        p="md"
-                        withBorder
-                        style={{
-                            backgroundColor: theme.white,
-                        }}
-                    >
-                        <Title order={4} mb="sm">
-                            Rearing Information
-                        </Title>
-                        <Divider mb="sm" />
-
-                        {impData?.IPMP.insectProtein.rearInfo.map((rearinfo, index) => (
-                            <Grid gutter="xl" mt="md" key={index}>
-                                <Grid.Col>
-                                    <Title order={5} mb="xs">
-                                        Rearing Facility
-                                    </Title>
-                                    <Text fw={500}>Location:</Text>
-                                    <Text mb="xs">{rearinfo.rearingFacility.location}</Text>
-
-                                    <Text fw={500}>Standard:</Text>
-                                    <Text mb="xs">{rearinfo.rearingFacility.standards}</Text>
-
-                                    <Text fw={500}>Approval number:</Text>
-                                    <Text mb="xs">{rearinfo.rearingFacility.approvalNumber}</Text>
-
-                                    <Divider my="md" />
-
-                                    <Title order={5} mb="xs">
-                                        Environmental Conditions
-                                    </Title>
-                                    <Text fw={500}>Humidity:</Text>
-                                    <Text mb="xs">{rearinfo.rearingEnvCond.humidity}</Text>
-
-                                    <Text fw={500}>Ventilation:</Text>
-                                    <Text mb="xs">{rearinfo.rearingEnvCond.ventilation}</Text>
-
-                                    <Text fw={500}>Temperature:</Text>
-                                    <Text>{rearinfo.rearingEnvCond.temperature}</Text>
-                                </Grid.Col>
-
-                                <Grid.Col >
-                                    <Title order={5} mb="xs">
-                                        Safety Protocols
-                                    </Title>
-                                    <Text fw={500}>Disease Monitoring:</Text>
-                                    <Text mb="xs">{rearinfo.diseaseMonitoring}</Text>
-
-                                    <Divider my="md" />
-
-                                    <Text fw={500}>Biosecurity Measures:</Text>
-                                    <Text>{rearinfo.biosecurityMeasures}</Text>
-                                </Grid.Col>
-                            </Grid>
-                        ))}
-                    </Paper>
-                </Flex>
-
-                <Flex direction={"column"} w={"33%"}>
-                    <Paper
-                        shadow="md"
-                        radius="md"
-                        p="md"
-                        withBorder
-                        style={{
-                            backgroundColor: theme.white,
-                        }}
-                    >
-                        <Title order={4} mb="sm">
-                            Regulatory Compliance
-                        </Title>
-                        <Divider mb="sm" />
-
-                        {impData?.IPMP.regCertifs.map((reg, index) => (
-                            <Box key={index} mb="md">
-                                <Text fw={500}>{reg.RegCertDescription}</Text>
-                                {reg.complianceCategories.map((cat, catIndex) => (
-                                    <Text key={catIndex}>{cat.complianceName}</Text>
-                                ))}
-                            </Box>
-                        ))}
-                    </Paper>
-                </Flex>
+                </Paper>
             </Flex>
+
+
 
         </Flex>
     );

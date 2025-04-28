@@ -5,16 +5,22 @@ import {
     Title,
     Text,
     Divider,
-    Table
+    Table, Flex, Avatar, Button
 } from "@mantine/core";
-import { IPMPModel } from "../models/test";
+import {Document, IPMPModel} from "../models/test";
+import {IconFile} from "@tabler/icons-react";
 
 /**
  * Displays an overview of quality assessment from IPMP data.
  * Assumes the IPMP data has already been stored in localStorage under "data".
  */
+interface DocumentWithPDF {
+    doc: Document;
+    pdfUrl: string;
+}
 export const Quality: React.FC = () => {
     const [ipmpData, setIpmpData] = useState<IPMPModel | null>(null);
+    const [documents, setDocuments] = useState<DocumentWithPDF[]>([]);
 
     // Retrieve data from localStorage when component mounts
     useEffect(() => {
@@ -23,6 +29,11 @@ export const Quality: React.FC = () => {
             const parsedData = JSON.parse(storedData) as IPMPModel;
             setIpmpData(parsedData);
         }
+        const storedDocs = localStorage.getItem("documents");
+        if (storedDocs) {
+            setDocuments(JSON.parse(storedDocs) as DocumentWithPDF[]);
+        }
+        console.log(storedDocs)
     }, []);
 
     // Extract the relevant part of the data
@@ -44,6 +55,13 @@ export const Quality: React.FC = () => {
         labTestReports,
     } = qualityAssessment;
 
+    // Function to download a PDF file
+    const handleDownload = (pdfUrl: string, fileName: string) => {
+        const a = document.createElement("a");
+        a.href = pdfUrl;
+        a.download = fileName;
+        a.click();
+    };
     return (
         <Box p="md">
             <Title order={2} mb="md">
@@ -61,52 +79,6 @@ export const Quality: React.FC = () => {
                 <Text size="sm">
                     <strong>Assessment Date:</strong> {assessDate}
                 </Text>
-            </Card>
-
-            {/* Processing Facility */}
-            <Card shadow="sm" p="md" mb="lg">
-                <Title order={3} mb="xs">
-                    Processing Facility
-                </Title>
-                <Text size="sm" mt="xs">
-                    <strong>Facility ID:</strong> {procFacility.procFacilityID}
-                </Text>
-                <Text size="sm">
-                    <strong>Location:</strong> {procFacility.location}
-                </Text>
-                <Text size="sm">
-                    <strong>Approval Number:</strong> {procFacility.approvalNumber}
-                </Text>
-                <Text size="sm">
-                    <strong>Standards:</strong> {procFacility.standards}
-                </Text>
-
-                <Divider my="md" />
-
-                {/* Processing Methods */}
-                <Title order={4} mb="xs">
-                    Processing Methods
-                </Title>
-                <Table highlightOnHover withColumnBorders>
-                    <Table.Thead>
-                    <Table.Tr>
-                        <Table.Th>Name</Table.Th>
-                        <Table.Th>Temperature</Table.Th>
-                        <Table.Th>Time</Table.Th>
-                        <Table.Th>Meal Format</Table.Th>
-                    </Table.Tr>
-                    </Table.Thead>
-                    <Table.Tbody>
-                    {procFacility.processingMethods.map((method) => (
-                        <Table.Tr key={method.procMethodID}>
-                            <Table.Td>{method.name}</Table.Td>
-                            <Table.Td>{method.temperature}</Table.Td>
-                            <Table.Td>{method.time}</Table.Td>
-                            <Table.Td>{method.mealFormat}</Table.Td>
-                        </Table.Tr>
-                    ))}
-                    </Table.Tbody>
-                </Table>
             </Card>
 
             {/* Lab Test Reports */}
@@ -192,6 +164,61 @@ export const Quality: React.FC = () => {
                                 ))}
                                 </Table.Tbody>
                             </Table>
+                            {report.documents && report.documents.length > 0 && (
+                                <Box mt="sm">
+                                    <Divider my="sm" />
+                                    <Text fw={500} mb="sm">
+                                        Documents
+                                    </Text>
+
+                                    {report.documents.map((doc) => {
+                                        // For each doc needed by the regulation, check in local "documents"
+                                        return (
+                                            <React.Fragment key={doc.documentID}>
+                                                {documents.map((storedDoc) => {
+                                                    if (doc.documentID === storedDoc.doc.documentID) {
+                                                        return (
+                                                            <Flex
+                                                                key={storedDoc.doc.documentID}
+                                                                direction="row"
+                                                                align="center"
+                                                                justify="space-between"
+                                                                mb="sm"
+                                                            >
+                                                                <Flex align="center" gap="15px">
+                                                                    <Avatar size="lg" radius="sm" variant="light">
+                                                                        <IconFile size={24} />
+                                                                    </Avatar>
+                                                                    <Text size="sm">{storedDoc.doc.fileName}</Text>
+                                                                </Flex>
+                                                                <Flex align="center" gap="15px">
+                                                                    <Button
+                                                                        variant="outline"
+                                                                        onClick={() =>
+                                                                            handleDownload(storedDoc.pdfUrl, storedDoc.doc.fileName)
+                                                                        }
+                                                                    >
+                                                                        Download
+                                                                    </Button>
+                                                                    <a
+                                                                        href={storedDoc.pdfUrl}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >
+                                                                        View
+                                                                    </a>
+                                                                </Flex>
+                                                            </Flex>
+                                                        );
+                                                    }
+                                                    // If not a match, return null
+                                                    return null;
+                                                })}
+                                            </React.Fragment>
+                                        );
+                                    })}
+                                </Box>
+                            )}
                         </Box>
                     );
                 })}
