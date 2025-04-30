@@ -1,0 +1,498 @@
+{
+  "IPMP": {
+    "passID": "PS-2085-01",
+    "creationDate": "2025-01-01",
+    "validityPeriod": "2027-01-01",
+    "insectProtein": {
+      "insectName": "Black Soldier Fly",
+      "insectSpecies": {
+        "genus": "Hermetia",
+        "species": "illucens"
+      },
+      "batchID": "BSF-001",
+      "batchSize": 500.5,
+      "specInfo": {
+        "feedType": "Organic Waste",
+        "feedSource": ["Vegetable Scraps", "Fruit Peels"],
+        "manufacturingDate": "2024-12-27",
+        "feedConversionRatio": 3,
+        "expiryDate": "2026-12-31"
+      },
+      "rearInfo": [
+        {
+          "rearingMethodology": ["Vertical Farming", "Controlled Climate"],
+          "rearingFacility": {
+            "location": "Province, China",
+            "approvalNumber": "3700AF307",
+            "standards": "Compliant with Regulation EC No. 1069/2009"
+          },
+          "rearingEnvCond": {
+            "temperature": "28°C",
+            "humidity": "70%",
+            "ventilation": "Automated"
+          },
+          "diseaseMonitoring": "Regular health checks",
+          "biosecurityMeasures": "Strict entry regulations"
+        }
+      ]
+    },
+    "qualityAssessment": {
+      "assessmentID": "QA-2025-001",
+      "assessDate": "2025-02-27",
+      "procFacility": {
+        "procFacilityID": "PF-001",
+        "location": "Mannheim, Germany",
+        "approvalNumber": "PF-56789",
+        "standards": "ISO 22000",
+        "processingMethods": [
+          {
+            "procMethodID": "PM-001",
+            "name": "Heat Treatment",
+            "temperature": "80°C",
+            "time": "30 mins",
+            "mealFormat": "Powder"
+          },
+          {
+            "procMethodID": "PM-002",
+            "name": "Freeze Drying",
+            "temperature": "-40°C",
+            "time": "12 hours",
+            "mealFormat": "Granules"
+          }
+        ]
+      },
+      "labTestReports": [
+        {
+          "testID": "LT-1001",
+          "testName": "Nutritional Composition Test",
+          "testStartDate": "2024-08-29",
+          "testEndDate": "2024-09-18",
+          "amendment": "Enter re-analysis result of Cysteine and Total amino acids",
+          "labFacility": {
+            "labID": "LAB-001",
+            "labName": "SGS India Pvt. Ltd.",
+            "labLocation": "India",
+            "approvalNumber": "CG24-021786.001-A-R01"
+          },
+          "testParameters": [
+            {
+              "paramID": "TP-001",
+              "paramName": "Tryptophan",
+              "testingMethod": "SO-IN-MUL-TE-027 By HPLC",
+              "result": 0.10,
+              "unit": "g/100 g"
+            },
+            {
+              "paramID": "TP-002",
+              "paramName": "Total amino acids",
+              "testingMethod": "SO-IN-MUL-TE-039 By HPLC",
+              "result": 44.15,
+              "unit": "g/100 g"
+            },
+            {
+              "parameterId": "TP-003",
+              "parameterName": "Crude Fiber",
+              "method": "ISO 6865",
+              "result": 9.37,
+              "unit": "g/100 g"
+            },
+            {
+              "parameterId": "TP-004",
+              "parameterName": "Acid Insoluble Ash",
+              "method": "ISO 5985",
+              "result": 0.31,
+              "unit": "g/100 g"
+            }
+          ],
+          "documents": [
+            {
+              "documentID": "DOC-5001",
+              "documentType": "PDF",
+              "fileName": "Lab Test Report-AAandDigestibility.pdf",
+              "filePath": "/files/Lab Test Report-AAandDigestibility.pdf",
+              "URL": "https://bucket-name.s3.amazonaws.com/documents/Lab_Test_Report-AAandDigestibility_22300000409825001.pdf"
+            }
+          ]
+        },
+        {
+          "testID": "LT-1002",
+          "testName": "Contaminant Test",
+          "testStartDate": "2024-09-20",
+          "testEndDate": "2024-09-22",
+          "amendment": "none",
+          "labFacility": {
+            "labID": "LAB-020",
+            "labName": "SGS India Pvt. Ltd.",
+            "labLocation": "India",
+            "approvalNumber": "CG24-021786.003"
+          },
+          "testParameters": [
+            {
+              "paramID": "TP-001",
+              "paramName": "Salmonella",
+              "testingMethod": "ISO 6579-1:2017",
+              "result": 0,
+              "unit": "g/25 g"
+            },
+            {
+              "paramID": "TP-002",
+              "paramName": "Enterobacteriaceae",
+              "testingMethod": "ISO 6579-1:2017",
+              "result": 4.15,
+              "unit": "CFU/g"
+            }
+          ]
+        }
+      ],
+      "storeHandleReq": {
+        "storeHandleReqID": "SHR-1001",
+        "storageCond": "Ambient during transport",
+        "packaging": "Sealed cartons with appropriate labeling",
+        "labelling": {
+          "labellingID": "LB-001",
+          "productName": "Dried Mealworms",
+          "intendedUse": "Pet Food",
+          "netWeight": "5kg",
+          "expiryDate": "2026-02-27",
+          "manufacturerDetails": {
+            "name": "ARTHRO BIOTECH PVT Ltd.",
+            "address": "K.V.RANGAREDDY 500019, Telangana, India",
+            "email": "support@arthrobiotech.com"
+          },
+          "importerDetails": {
+            "name": "BSF CYCLE GMBH",
+            "address": "Buehlstrasse 4, Göttingen, Germany",
+            "email": "hampe@abshcycle.com"
+          },
+          "analyticalComponent": {
+            "ProteinContent": "50%",
+            "FatContent": "25%",
+            "Salmonella": "not present",
+            "Lead": "0.02 mg/kg",
+            "TotalBacterialCount": "4.15 CFU/g"
+          }
+        },
+        "handlingRequirement": "EU-compliant labeling - 'Not for Human Consumption'",
+        "shelfExpirationPeriod": "12 months at room temperature"
+      }
+    },
+    "SustainabilityReq": {
+      "susID": "S001",
+      "susDescription": "Sustainability measures for production",
+      "resourceUse": {
+        "waterUsage": "1000 liters",
+        "waterFootprint": "1050 liters/kg of biomass",
+        "energyUse": "200 kWh per kg of biomass"
+      },
+      "environmentalImpact": {
+        "carbonFootprint": "2.5 kg CO2 equivalent per kg",
+        "landUse": "5 hectares",
+        "wasteManagement": "Recycling of insects by-products reported"
+      },
+      "circularity": {
+        "wasteReductionStrategy": "Optimized packaging to minimize waste",
+        "contributionCE": "50% of materials are recycled - Aligns with EU Circular Economy Action Plan"
+      },
+      "socialAndEconomicImpact": {
+        "labourStandards": "ISO 45001 compliant operations ensure high safety and health standards",
+        "costSavings": "20% reduction in costs",
+        "humanHealthMonitoring": "Regular safety assessments"
+      },
+      "SustReport": {
+        "reportID": "SR202501",
+        "generatedDate": "2025-03-10",
+        "summary": "This report provides an overview of sustainability performance metrics.",
+        "resourceUseSummary": "Water usage: 1000 liters, waterFootprint: 500 liters/kg of biomass, Energy use: 200 kWh",
+        "environmentalImpactSummary": "Carbon footprint: 2.5 kg CO2 equivalent/kg, Land use: 5 hectares, Waste managed through recycling.",
+        "socialEconomicImpactSummary": "Labour standards: ISO 45001 compliant, Cost savings: 20% reduction.",
+        "circularitySummary": "50% of materials are recycled, Optimized packaging to minimize waste."
+      }
+    },
+    "regCertifs": [
+      {
+        "RegCertID": "CERT-12345",
+        "RegCertDescription": "EU Food/Feed adherance Certification",
+        "complianceCategories": [
+          {
+            "complianceID": "COMP-001",
+            "complianceName": "Processing",
+            "complianceDescription": "Ensures compliance with EU food safety processing regulations",
+            "regulations": [
+              {
+                "regulationID": "REG-1001",
+                "regulationName": "EC No 1069/2009 and EC No 142/2011",
+                "regulationIssuer": "European Commission",
+                "complianceDate": "2021-07-01",
+                "regulatorySpecificities": [
+                  {
+                    "requirement": "Heat treatment must be at least 90°C.",
+                    "details": "High temperature is required to eliminate harmful pathogens"
+                  }
+                ],
+                "documents": [
+                  {
+                    "documentID": "DOC-1001",
+                    "documentType": "PDF",
+                    "fileName": "veterinary_health_certificate.pdf",
+                    "filePath": "/files/veterinary_health_certificate.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/veterinary_health_certificate_22300000409825001.pdf"
+                  },
+                  {
+                    "documentID": "DOC-1002",
+                    "documentType": "PDF",
+                    "fileName": "facilit_audit_certificate.pdf",
+                    "filePath": "/files/facilit_audit_certificate.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/facilit_audit_certificate_25480000409825001.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "complianceID": "COMP-002",
+            "complianceName": "Material Classification",
+            "complianceDescription": "Ensures insects and feedstock comply to EU regulations",
+            "regulations": [
+              {
+                "regulationID": "REG-2001",
+                "regulationName": "EC No 1069/2009 Articles 8, 10, 11",
+                "regulationIssuer": "European Commission",
+                "complianceDate": "2022-05-10",
+                "regulatorySpecificities": [
+                  {
+                    "requirement": "Category-3 material standards",
+                    "details": "Prohibition of using food waste from restuarants, even plant-based scraps."
+                  }
+                ],
+                "documents": [
+                  {
+                    "documentID": "DOC-2001",
+                    "documentType": "PDF",
+                    "fileName": "material_compliance_certificate.pdf",
+                    "filePath": "/files/material_compliance_certificate.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/material_compliance_certificate_10580000409825001.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "complianceID": "COMP-003",
+            "complianceName": "Trade and Logistics",
+            "complianceDescription": "Ensures transportation comply to EU regulations",
+            "regulations": [
+              {
+                "regulationID": "REG-1056",
+                "regulationName": "EC No 1069/2009",
+                "regulationIssuer": "European Commission",
+                "complianceDate": "2020-08-10",
+                "regulatorySpecificities": [
+                  {
+
+                  }
+                ],
+                "documents": [
+                  {
+                    "documentID": "DOC-3001",
+                    "documentType": "PDF",
+                    "fileName": "certificate_of_origin.pdf",
+                    "filePath": "/files/certificate_of_origin.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/certificate_of_origin_10002000409825001.pdf"
+                  },
+                  {
+                    "documentID": "DOC-3002",
+                    "documentType": "PDF",
+                    "fileName": "bill_of_landing.pdf",
+                    "filePath": "/files/bill_of_landing.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/bill_of_landing_3052000409825001.pdf"
+                  },
+                  {
+                    "documentID": "DOC-3003",
+                    "documentType": "PDF",
+                    "fileName": "custom_clearance_invoice.pdf",
+                    "filePath": "/files/custom_clearance_invoice.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/custom_clearance_invoice_311100409825001.pdf"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "supplyChain": {
+      "SupplyChainID": "SC-2025-001",
+      "description": "Tracked from farm to market",
+      "actors": [
+        {
+          "actorId": "A001",
+          "name": "Insect Farm",
+          "type": "Rearer",
+          "location": "Province, China",
+          "contact": "+86 138 0000 1234",
+          "email": "xxx@insectfarm.in",
+          "activity": [
+            {
+              "activityId": "ACT001",
+              "type": "Rear",
+              "timestamp": "2025-01-01T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "actorId": "A002",
+          "name": "Pengfei Pet Food Co., Ltd.",
+          "type": "Exporter",
+          "location": "Qingdao, China",
+          "contact": "+86 139 8888 5678",
+          "email": "xxx@pengfi.cn",
+          "activity": [
+            {
+              "activityId": "ACT002",
+              "type": "Export",
+              "timestamp": "2025-01-01T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "actorId": "A003",
+          "name": "COSCO Shipping",
+          "type": "Transporter",
+          "location": "China",
+          "contact": "+86 188 5555 2468",
+          "email": "xxx@cosco.cn",
+          "activity":[
+            {
+              "activityId": "ACT003",
+              "type": "Transport",
+              "timestamp": "2025-01-15T10:00:00Z",
+              "documents": [
+                {
+                  "documentID": "DOC-1001",
+                  "documentType": "PDF",
+                  "fileName": "bill_of_landing.pdf",
+                  "filePath": "/files/bill_of_landing.pdf",
+                  "URL": "https://bucket-name.s3.amazonaws.com/documents/bill_of_landing_3052000409825001.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "actorId": "A004",
+          "name": "BSF Cycle GmbH",
+          "type": "Importer",
+          "location": "Germany",
+          "contact": "+49 551 270 70 114",
+          "email": "hampe@bsfcycle.com",
+          "activity":[
+            {
+              "activityId": "ACT004",
+              "type": "Import Clearance",
+              "timestamp": "2025-01-26T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "actorId": "A005",
+          "name": "Pet Food Processor GmbH",
+          "type": "Processor",
+          "location": "Germany",
+          "contact": "+49 621 1234567",
+          "email": "support@pfproces.de",
+          "activity":[
+            {
+              "activityId": "ACT005",
+              "type": "Processing",
+              "timestamp": "2025-02-12T08:00:00Z"
+            }
+          ]
+        }
+      ],
+      "traceLog": [
+        {
+          "traceID": "TRACE-20250310-001",
+          "actorRole": "Rearer",
+          "companyName": "Insect Farm",
+          "location": "Province, China",
+          "coords": [30.9756, 112.2707],
+          "logistics": {
+            "mode": "Truck",
+            "carrier": "Chinese DHL",
+            "departureDate": "2025-01-01",
+            "arrivalDate": "2025-01-03",
+            "departureLocation": "Province, China",
+            "departureCoords": [30.9756, 112.2707],
+            "arrivalLocation": "Shanghai Port, China",
+            "arrivalCoords": [31.2304, 121.4737],
+            "temperatureCond": "Maintained at 5°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-002",
+          "actorRole": "Exporter",
+          "companyName": "Pengfei Pet Food Co., Ltd.",
+          "location": "Shanghai, China",
+          "coords": [31.2304, 121.4737],
+          "logistics": {
+            "mode": "Sea Freight",
+            "carrier": "COSCO Shipping",
+            "departureDate": "2025-01-01",
+            "arrivalDate": "2025-01-26",
+            "departureLocation": "Shanghai Port, China",
+            "departureCoords": [31.2304, 121.4737],
+            "arrivalLocation": "Hamburg Port, Germany",
+            "arrivalCoords": [53.5461, 9.9661],
+            "temperatureCond": "Maintained at 5°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-003",
+          "actorRole": "Importer",
+          "companyName": "BSF Cycle GmbH",
+          "location": "Hamburg, Germany",
+          "coords": [53.5461, 9.9661],
+          "logistics": {
+            "mode": "Truck",
+            "carrier": "DHL Logistics",
+            "departureDate": "2025-01-26",
+            "arrivalDate": "2025-01-28",
+            "departureLocation": "Hamburg Port, Germany",
+            "departureCoords": [53.5461, 9.9661],
+            "arrivalLocation": "Hamburg Warehouse, Germany",
+            "arrivalCoords": [53.55, 10.0],
+            "temperatureCond": "Refrigerated at 4°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-003",
+          "actorRole": "Importer",
+          "companyName": "BSF Cycle GmbH",
+          "location": "Hamburg Warehouse, Germany",
+          "coords": [53.55, 10.0],
+          "logistics": {
+            "mode": "Truck",
+            "carrier": "DHL Logistics",
+            "departureDate": "2025-01-26",
+            "arrivalDate": "2025-01-28",
+            "departureLocation": "Hamburg Warehouse, Germany",
+            "departureCoords":  [53.55, 10.0],
+            "arrivalLocation": "Pet Food Processor GmbH",
+            "arrivalCoords": [49.4875, 8.4660],
+            "temperatureCond": "Refrigerated at 4°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-004",
+          "actorRole": "Processor",
+          "companyName": "Pet Food Processor GmbH",
+          "location": "Mannheim, Germany",
+          "coords": [49.4875, 8.4660],
+          "logistics": {
+
+          }
+        }
+      ]
+    }
+  }
+}
