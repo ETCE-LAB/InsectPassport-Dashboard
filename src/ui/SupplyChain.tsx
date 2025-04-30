@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
-import L from "leaflet";
+import {MapContainer, TileLayer, Marker, Popup, Polyline, Tooltip} from "react-leaflet";
+import L, {LatLngExpression} from "leaflet";
 import "leaflet/dist/leaflet.css";
 import {
     Timeline,
@@ -8,7 +8,7 @@ import {
     Title,
     Divider,
     Flex,
-    Box
+    Box, Button
 } from "@mantine/core";
 import { IconShip, IconTruck } from "@tabler/icons-react";
 
@@ -19,15 +19,18 @@ type Logistics = {
     departureDate: string;
     arrivalDate: string;
     departureLocation: string;
+    departureCoords: [number, number];
     arrivalLocation: string;
+    arrivalCoords: [number, number];
     temperatureCond: string;
-};
+}
 
 type TraceLogEntry = {
     traceID: string;
     actorRole: string;
     companyName: string;
     location: string;
+    coords: [number, number]
     logistics: Partial<Logistics>;
 };
 
@@ -57,6 +60,8 @@ const locationCoords: Record<string, [number, number]> = {
     "Mannheim, Germany": [49.4875, 8.4660],
 };
 
+
+
 // Icons for markers: normal vs. highlighted
 const defaultMarkerIcon = L.icon({
     iconUrl:
@@ -76,10 +81,6 @@ const highlightMarkerIcon = L.icon({
     iconAnchor: [12, 41],
 });
 
-// Helper to fetch coordinates from dictionary
-function getCoords(location: string): [number, number] | null {
-    return locationCoords[location] || null;
-}
 
 export const SupplyChain: React.FC = () => {
     const [impData, setImpData] = useState<IPMPModel | null>(null);
@@ -108,31 +109,28 @@ export const SupplyChain: React.FC = () => {
     // Prepare the data
     const traceLog = impData?.IPMP.supplyChain.traceLog || [];
 
-    // Markers (one per trace entry)
+    // Generate marker data directly from the embedded coords
     const markersData = traceLog.map(entry => ({
         traceID: entry.traceID,
         actorRole: entry.actorRole,
         companyName: entry.companyName,
         location: entry.location,
-        coords: getCoords(entry.location),
+        coords: entry.coords,
     }));
 
-    // Polylines for any entry with departure+arrival
+// Generate route polylines directly from embedded departure/arrival coords
     const routesData = traceLog
-        .filter(entry => entry.logistics?.departureLocation && entry.logistics?.arrivalLocation)
-        .map(entry => {
-            const dep = getCoords(entry.logistics!.departureLocation!);
-            const arr = getCoords(entry.logistics!.arrivalLocation!);
-            return {
-                traceID: entry.traceID,
-                departureLocation: entry.logistics!.departureLocation!,
-                arrivalLocation: entry.logistics!.arrivalLocation!,
-                mode: entry.logistics!.mode,
-                coords: dep && arr ? [dep, arr] : null,
-            };
-        })
-        .filter(route => route.coords !== null);
-
+        .filter(entry => entry.logistics.departureCoords && entry.logistics.arrivalCoords)
+        .map(entry => ({
+            traceID: entry.traceID,
+            departureLocation: entry.logistics.departureLocation,
+            arrivalLocation: entry.logistics.arrivalLocation,
+            mode: entry.logistics.mode,
+            coords: [
+                entry.logistics.departureCoords as LatLngExpression,
+                entry.logistics.arrivalCoords as LatLngExpression,
+            ],
+        }));
     // Decide on a center for your map
     const mapCenter: [number, number] = [40, 50];
     const zoomLevel = 3;
@@ -164,6 +162,10 @@ export const SupplyChain: React.FC = () => {
                         style={{ cursor: "pointer" }}
                     >
                         {traceLog.map((log) => {
+
+                            if(log.logistics.arrivalCoords == null){
+                                return <></>
+                            }
                             // Pick an icon for the bullet
                             const bulletIcon =
                                 log.logistics.mode === "Sea Freight" ? (
@@ -203,7 +205,7 @@ export const SupplyChain: React.FC = () => {
                 {/* Map */}
                 <Flex direction={"column"} w={"70%"}>
                     <Title order={3} mb={"15px"}>
-                        Trace Log Interactive Map
+                        Tracelog Interactive Map
                     </Title>
                     <div style={{ width: "100%", height: "600px" }}>
                         <MapContainer center={mapCenter} zoom={zoomLevel} style={{ height: "100%", width: "100%" }}>
@@ -213,7 +215,7 @@ export const SupplyChain: React.FC = () => {
                             />
 
                             {/* Markers */}
-                            {markersData.map(marker => {
+                            {markersData.map((marker, index) => {
                                 if (!marker.coords) return null;
                                 const [lat, lng] = marker.coords;
                                 // Decide if this marker is selected
@@ -237,20 +239,46 @@ export const SupplyChain: React.FC = () => {
                             })}
 
                             {/* Polylines */}
-                            {routesData.map(route => {
+                            {routesData.map((route, idx) => {
                                 if (!route.coords) return null;
-                                // Decide if this route is selected
+
+                                // 1-based index
+                                const label = idx + 1;
+
+                                // midpoint of the line for placing the label
+                                const [start, end] = route.coords as [LatLngExpression, LatLngExpression];
+                                const midpoint: LatLngExpression = [
+                                    // @ts-ignore start and end are [number,number]
+                                    (start[0] + end[0]) / 2,
+                                    // @ts-ignore
+                                    (start[1] + end[1]) / 2,
+                                ];
+
                                 const isSelected = route.traceID === selectedTraceID;
+
                                 return (
-                                    <Polyline
-                                        key={route.traceID}
-                                        positions={route.coords}
-                                        // Change color/weight if selected
-                                        pathOptions={{
-                                            color: isSelected ? "red" : "blue",
-                                            weight: isSelected ? 4 : 2,
-                                        }}
-                                    />
+                                    <React.Fragment key={route.traceID}>
+                                        <Polyline
+                                            positions={route.coords as LatLngExpression[]}
+                                            pathOptions={{
+                                                color:  isSelected ? 'red'  : '#238BE6',
+                                                weight: isSelected ? 4      : 2,
+                                            }}
+                                        />
+                                        <Marker
+                                            position={midpoint}
+                                            interactive={false}      // so clicks pass through
+                                            icon={L.divIcon({
+                                                className: 'route-label',
+                                                html: !isSelected ?
+                                                    `<div style="background: #238BE6; width: 30px; height: 30px; border-radius: 15px; color: white; display: flex; justify-content: center; font-size: 20px">${idx + 1}</div>`
+                                                :
+                                                    `<div style="background: red; width: 30px; height: 30px; border-radius: 15px; color: white; display: flex; justify-content: center; font-size: 20px">${idx + 1}</div>`
+                                                ,
+                                            })}
+                                        />
+
+                                    </React.Fragment>
                                 );
                             })}
                         </MapContainer>

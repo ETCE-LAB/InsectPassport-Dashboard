@@ -263,6 +263,7 @@ export interface TraceLog {
     actorRole: string;
     companyName: string;
     location: string;
+    coords: [number, number];
     logistics: Logistics;
 }
 
@@ -272,6 +273,8 @@ export interface Logistics {
     departureDate: string;
     arrivalDate: string;
     departureLocation: string;
+    departureCoords: [number, number];
     arrivalLocation: string;
+    arrivalCoords: [number, number];
     temperatureCond: string;
 }

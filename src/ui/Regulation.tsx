@@ -134,13 +134,20 @@ export const Regulation: React.FC = () => {
                                                                             >
                                                                                 Download
                                                                             </Button>
-                                                                            <a
-                                                                                href={storedDoc.pdfUrl}
-                                                                                target="_blank"
-                                                                                rel="noopener noreferrer"
-                                                                            >
-                                                                                View
-                                                                            </a>
+                                                                            <Button>
+                                                                                <a
+                                                                                    style={{
+                                                                                        color: "white",
+                                                                                        textDecoration: "none"
+                                                                                    }}
+                                                                                    href={storedDoc.pdfUrl}
+                                                                                    target="_blank"
+                                                                                    rel="noopener noreferrer"
+                                                                                >
+                                                                                    View
+                                                                                </a>
+                                                                            </Button>
+
                                                                         </Flex>
                                                                     </Flex>
                                                                 );

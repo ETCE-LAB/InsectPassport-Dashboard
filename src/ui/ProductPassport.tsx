@@ -13,7 +13,7 @@ import example from '../util/example.png';
 import { IPMPModel } from '../models/test';
 import {
     IconAdjustments,
-    IconBuildingWarehouse,
+    IconBuildingWarehouse, IconCheck,
     IconDroplet,
     IconLeaf,
     IconMap2,
@@ -223,7 +223,7 @@ const ProductPassport: React.FC = () => {
                             <IconAdjustments size={20} style={{ marginRight: 8 }} /> Processing Info
                         </Title>
                         {impData?.IPMP.qualityAssessment.procFacility.processingMethods.map(method => {
-                            return <Text>{`${method.name}: ${method.temperature}, ${method.time} --> ${method.mealFormat}`}</Text>
+                            return <Text>{`${method.name}: ${method.temperature}, ${method.time}`} → {`${method.mealFormat}`}</Text>
                         })}
                     </Paper>
                 </Flex>
@@ -274,7 +274,7 @@ const ProductPassport: React.FC = () => {
                             return <>{testReport.testName + ", "}</>
                         })}</Text>
                         <Text>Handling: {impData?.IPMP.qualityAssessment.storeHandleReq.handlingRequirement}</Text>
-                        <Text>Storage: {impData?.IPMP.qualityAssessment.storeHandleReq.storageCond} {"-->"} {impData?.IPMP.qualityAssessment.storeHandleReq.shelfExpirationPeriod}</Text>
+                        <Text>Storage: {impData?.IPMP.qualityAssessment.storeHandleReq.storageCond} {"→"} {impData?.IPMP.qualityAssessment.storeHandleReq.shelfExpirationPeriod}</Text>
                     </Paper>
                 </Flex>
             </Flex>
@@ -359,8 +359,8 @@ const ProductPassport: React.FC = () => {
 
                     {impData?.IPMP.regCertifs.map(cert => {
                         return <>{cert.complianceCategories.map(cat => {
-                            return <Flex align={"center"}>
-                                Check {cat.complianceName}
+                            return <Flex align={"center"} gap={"15px"}>
+                                <IconCheck /> {cat.complianceName}
                             </Flex>
                         })}</>
                     })}
@@ -382,7 +382,7 @@ const ProductPassport: React.FC = () => {
                     </Title>
 
                     {impData?.IPMP.supplyChain.traceLog.map(log => {
-                        return <Text>{`${log.actorRole}: ${log.companyName}, ${log.location} -> ${log.logistics.mode}`}</Text>
+                        return <Text>{`${log.actorRole}: ${log.companyName}, ${log.location} → ${log.logistics.mode}`}</Text>
                     })}
 
                 </Paper>

@@ -73,7 +73,7 @@ const AppRouter: React.FC = () => {
                 >
                     <Flex align="center" gap="15px">
                         <Image height={50} src={logo} alt="Logo" />
-                        <Title order={1}>Digital Insect Passport</Title>
+                        <Title order={1}>Digital InsectPassport</Title>
                     </Flex>
                     <Flex gap="sm">
                         {navItems.map(({ label, path }) => (
@@ -110,12 +110,32 @@ const AppRouter: React.FC = () => {
 
             <AppShell.Footer>
                 <Flex direction="row" gap="15px" p="md" justify="center">
-                    <Button variant="subtle">About us</Button>
-                    <Button variant="subtle">Terms of service</Button>
-                    <Button variant="subtle">Privacy Policy</Button>
-                    <Text>|</Text>
-                    <Text>Email: support@test.com</Text>
-                    <Text>Phone: 0987654321</Text>
+                    <Button variant={"subtle"}>
+                        <a
+                            style={{
+                                textDecoration: "none",
+                                color: "#238BE6"
+                            }}
+                            href={"https://etce-lab.com/#team"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ETCE
+                        </a>
+                    </Button>
+                    <Button variant={"subtle"}>
+                        <a
+                            style={{
+                                textDecoration: "none",
+                                color: "#238BE6"
+                            }}
+                            href={"https://github.com/ETCE-LAB/InsectPassport-Dashboard"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Github
+                        </a>
+                    </Button>
                 </Flex>
             </AppShell.Footer>
         </AppShell>
