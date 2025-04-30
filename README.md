@@ -11,7 +11,6 @@ for deployment to gh pages:
 1) npm run deploy
 
 for deployment on server:
-
-1) npm run build
-2) npm install -g serve
-3) serve -s build -l 3000
+1) npm install          # if you haven’t yet
+2) npm run build:local  # generates a relative-path build
+3) npm run serve        # serves it at http://localhost:3000
