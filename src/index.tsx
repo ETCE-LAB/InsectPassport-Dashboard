@@ -19,8 +19,8 @@ TODO-Johannes:
  */
 
 root.render(
-  <React.StrictMode>
+
       <Provider></Provider>
-  </React.StrictMode>
+
 );
 
