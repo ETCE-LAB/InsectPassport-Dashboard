@@ -27,9 +27,11 @@ The setup and deployment guide for a JavaScript project (React app):
      ```bash
      npm install
 2) Generate a relative-path build
-     ```npm run build: local 
+     ```bash
+     npm run build: local 
 3) Serves it at http://localhost:3000
-     ```npm run serve        
+     ```bash
+     npm run serve        
 
 # Repository Structure
 ## /figures/ 
