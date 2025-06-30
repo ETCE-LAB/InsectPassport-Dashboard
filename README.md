@@ -46,7 +46,7 @@ The setup and deployment guide for a JavaScript project (React app):
 ## /figures/ 
 All the diagrams cited in the paper:
 - **`data_model_DPP_insect_meal_complete.pdf`**
-       High-level overview of the insect meal's digital product passport (DPP), showcasing the core information categories and related hierarchical levels.
+  High-level overview of the insect meal's digital product passport (DPP), showcasing the core information categories and related hierarchical levels.
 - 'data_model_DPP_insect_meal.pdf' - Shorter version of the DPP overview suitable for the paper size constraints.
 - 'domain_model_DPP_insect_meal.pdf' - High-level conceptual model of key entities and their relationships.
 - 'class_diagram_DPP_insect_meal.pdf' - UML class diagram representing the DPP architecture, showing relationships between all information categories.
