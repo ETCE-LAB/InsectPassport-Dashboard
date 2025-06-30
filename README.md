@@ -20,7 +20,8 @@ The setup and deployment guide for a JavaScript project (React app):
 
 ### Deployment
 #### Deploy to GitHub Pages
-1) npm run deploy
+  ```bash
+   npm run deploy
 
 #### Deploy to Own Server
 1) If you haven’t yet installed all dependencies
