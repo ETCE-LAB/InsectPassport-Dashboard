@@ -20,10 +20,10 @@ The setup and deployment guide for a JavaScript project (React app):
   - Make sure you have the latest LTS version of Node.js and npm installed
   - You can download it here https://nodejs.org
   - After installing or updating, run step 3 again
+    
 4) Start the development server (usually at http://localhost:3000)
       ```bash
       npm start
-    
 
 ### Deployment
 #### Deploy to GitHub Pages
