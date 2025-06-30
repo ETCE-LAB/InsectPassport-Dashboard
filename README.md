@@ -15,13 +15,13 @@ The setup and deployment guide for a JavaScript project (React app):
 2) Install all necessary dependencies
      ```bash
      npm install                               
-##### Troubleshooting
+> Troubleshooting
   - If npm install fails, it may be due to an outdated or missing version of Node.js or npm
   - Make sure you have the latest LTS version of Node.js and npm installed
   - You can download it here https://nodejs.org
   - After installing or updating, run step 3 again
     
-4) Start the development server (usually at http://localhost:3000)
+3) Start the development server (usually at http://localhost:3000)
       ```bash
       npm start
 
