@@ -1,10 +1,17 @@
 # InsectPassport-Dashboard
 
-For dev:
+## Development setup
+The setup and deployment guide for a JavaScript project (React app):
 
-1) git clone
-2) npm install
-3) npm start
+1a) git clone https://github.com/ETCE-LAB/InsectPassport-Dashboard.git    # Retrieves and creates a local version of the remote project repository
+1b) cd InsectPassport-Dashboard    # Navigate into the project directory
+1c) npm install    # Installs all dependencies necessary
+- Troubleshooting
+- - If npm install fails, it may be due to an outdated or missing version of Node.js or npm
+  - Make sure you have the latest LTS version of Node.js and npm installed.
+  - You can download it here https://nodejs.org
+  - After installing or updating, run again 1c
+1d) npm start    # Starts the development server (usually at http://localhost:3000)
 
 for deployment to gh pages:
 
