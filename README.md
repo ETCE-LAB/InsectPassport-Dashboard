@@ -1,27 +1,28 @@
 # InsectPassport-Dashboard
-brief description
+This case study implementation provides initial validation of the proposed Digital Product Passport (DPP) architecture for insect meal, confirming its relevance and practical applicability through its core categories and information flows.
 
 ## Live Demo
 Visit the PoC here: https://etce-lab.github.io/InsectPassport-Dashboard/
 
-## Development setup
+## For Developers
+### Getting started
 The setup and deployment guide for a JavaScript project (React app):
 
-1) git clone https://github.com/ETCE-LAB/InsectPassport-Dashboard.git            # Retrieves and creates a local version of the remote project repository
-2) cd InsectPassport-Dashboard                # Navigate into the project directory
-3) npm install                # Installs all dependencies necessary
-#### Troubleshooting
+1) git clone https://github.com/ETCE-LAB/InsectPassport-Dashboard.git            
+2) cd InsectPassport-Dashboard                
+3) npm install                
+##### Troubleshooting
 - - If npm install fails, it may be due to an outdated or missing version of Node.js or npm
   - Make sure you have the latest LTS version of Node.js and npm installed
   - You can download it here https://nodejs.org
   - After installing or updating, run step 3 again
 4) npm start    # Starts the development server (usually at http://localhost:3000)
 
-for deployment to gh pages:
-
+### Deployment
+#### Deploy to GitHub Pages
 1) npm run deploy
 
-for deployment on server:
+#### Deploy to Own Server
 1) npm install          # if you haven’t yet
 2) npm run build:local  # generates a relative-path build
 3) npm run serve        # serves it at http://localhost:3000
