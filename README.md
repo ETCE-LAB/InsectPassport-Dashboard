@@ -24,11 +24,11 @@ The setup and deployment guide for a JavaScript project (React app):
 
 #### Deploy to Own Server
 1) If you haven’t yet installed all dependencies
-     npm install
+     ```npm install
 2) Generate a relative-path build
-     npm run build: local 
+     ```npm run build: local 
 3) Serves it at http://localhost:3000
-     npm run serve        
+     ```npm run serve        
 
 # Repository Structure
 ## /figures/ 
