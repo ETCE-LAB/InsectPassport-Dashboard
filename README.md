@@ -43,6 +43,10 @@ The setup and deployment guide for a JavaScript project (React app):
      npm run serve        
 
 # Repository Structure
+## /demo/
+This folder contains the default dataset folder (`dashboard_dataset`) required to use the PoC fully.
+- The dashboard expects the user to upload this folder
+  
 ## /figures/ 
 All the diagrams cited in the paper:
 - **`data_model_DPP_insect_meal_complete.pdf`**  
@@ -80,4 +84,4 @@ Materials related to the case study scenario in the paper:
 - **`supply_chain_illustration.pdf`**  
   Illustration of what the supply chain looks like
 
-## /demo/
+
