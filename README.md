@@ -8,9 +8,9 @@ The setup and deployment guide for a JavaScript project (React app):
 3) npm install                # Installs all dependencies necessary
 #### Troubleshooting
 - - If npm install fails, it may be due to an outdated or missing version of Node.js or npm
-  - Make sure you have the latest LTS version of Node.js and npm installed.
+  - Make sure you have the latest LTS version of Node.js and npm installed
   - You can download it here https://nodejs.org
-  - After installing or updating, run again 1c
+  - After installing or updating, run step 3 again
 4) npm start    # Starts the development server (usually at http://localhost:3000)
 
 for deployment to gh pages:
@@ -45,3 +45,5 @@ Materials related to the case study scenario in the paper:
 - 'Lab_Test_Report_AAandDigestibility.pdf' - Proof of laboratory test on products related to the Hygiene & Traceability Compliance regulation
 - 'veterinary_health_certificate.pdf' - Proof of checking the product's health state related to the Processing Compliance regulation
 - 'supply_chain_illustration.pdf' - Illustration of what the supply chain looks like
+
+## /demo/
