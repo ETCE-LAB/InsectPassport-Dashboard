@@ -1,4 +1,8 @@
 # InsectPassport-Dashboard
+brief description
+
+## Live Demo
+Visit the PoC here: https://etce-lab.github.io/InsectPassport-Dashboard/
 
 ## Development setup
 The setup and deployment guide for a JavaScript project (React app):
