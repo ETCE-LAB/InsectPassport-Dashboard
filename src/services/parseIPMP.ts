@@ -1,12 +1,15 @@
-import {IPMPModel} from "../models/test";
+import {IPMP} from "../models/test";
 
-export function parseIPMPModel(json: string): IPMPModel {
+export function parseIPMPModel(json: string): IPMP {
     try {
         const parsedData = JSON.parse(json);
-        // Optionally, insert runtime validation logic here to ensure parsedData conforms to IPMPModel
-        const data = parsedData as IPMPModel;
-        localStorage.setItem("data", JSON.stringify(data))
-        return data
+        // Check and extract the .IPMP property
+        if (!parsedData.IPMP) {
+            throw new Error("Missing 'IPMP' root key in JSON");
+        }
+        const data = parsedData.IPMP as IPMP;
+        localStorage.setItem("data", JSON.stringify(data));
+        return data;
     } catch (error) {
         throw new Error("Failed to parse JSON: " + (error as Error).message);
     }

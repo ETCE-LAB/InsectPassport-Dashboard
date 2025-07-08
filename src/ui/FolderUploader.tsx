@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { IPMPModel, Document } from "../models/test"; // adjust the path as needed
+import { IPMP, Document } from "../models/test"; // adjust the path as needed
 import { parseIPMPModel } from "../services/parseIPMP"; // adjust the path as needed
 
 interface DocumentWithPDF {
@@ -13,7 +13,7 @@ interface FolderInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const FolderUploader: React.FC = () => {
-    const [ipmpData, setIpmpData] = useState<IPMPModel | null>(null);
+    const [ipmpData, setIpmpData] = useState<IPMP | null>(null);
     const [documents, setDocuments] = useState<DocumentWithPDF[]>([]);
 
     // Handle folder upload
@@ -35,7 +35,7 @@ const FolderUploader: React.FC = () => {
         reader.onload = (e) => {
             try {
                 const text = e.target?.result as string;
-                const parsedData: IPMPModel = parseIPMPModel(text);
+                const parsedData: IPMP = parseIPMPModel(text);
 
                 // Helper function to get the matching PDF URL for a Document
                 const getPdfUrlForDocument = (doc: Document): string => {
@@ -49,7 +49,7 @@ const FolderUploader: React.FC = () => {
                 const updatedDocuments: DocumentWithPDF[] = [];
 
                 // Traverse Regulatory Certifications Documents
-                parsedData.IPMP.regCertifs.forEach(regCertif => {
+                parsedData.regCertifs.forEach(regCertif => {
                     regCertif.complianceCategories.forEach(category => {
                         category.regulations.forEach(regulation => {
                             regulation.documents?.forEach(doc => {
@@ -63,7 +63,7 @@ const FolderUploader: React.FC = () => {
                 });
 
                 // Traverse Supply Chain Activity Documents
-                parsedData.IPMP.supplyChain.actors.forEach(actor => {
+                parsedData.supplyChain.actors.forEach(actor => {
                     actor.activity.forEach(activity => {
                         activity.documents?.forEach(doc => {
                             const pdfUrl = getPdfUrlForDocument(doc);
@@ -74,15 +74,15 @@ const FolderUploader: React.FC = () => {
                     });
                 });
 
-                parsedData.IPMP.qualityAssessment.labTestReports.forEach(report => {
+                console.log("found lab reports: ")
+                parsedData.qualityAssessment.labTestReports.forEach(report => {
+                    console.log("report: " + report.testID)
                     report.documents?.forEach(doc => {
                         const pdfUrl = getPdfUrlForDocument(doc);
-                        console.log(pdfUrl)
                         if (pdfUrl){
                             updatedDocuments.push({doc, pdfUrl})
                         }
-                        fileArray.forEach(file => console.log(file.name))
-                        console.log("found lab report pdf")
+                        console.log(doc.documentID + " " + doc.fileName)
                     })
                 })
 

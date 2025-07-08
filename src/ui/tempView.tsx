@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
-import {IPMPModel} from "../models/test";
+import {IPMP} from "../models/test";
 
 export const TempView = () => {
 
-    const [impData, setImpData] = useState<null | IPMPModel>(null)
+    const [impData, setImpData] = useState<null | IPMP>(null)
 
     useEffect(() => {
         const stringData = localStorage.getItem("data")
         if(stringData){
-            const parsedData = JSON.parse(stringData) as IPMPModel
+            const parsedData = JSON.parse(stringData) as IPMP
             setImpData(parsedData)
         }
 

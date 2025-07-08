@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IPMPModel, Document } from "../models/test";
+import { IPMP, Document } from "../models/test";
 import {
     Box,
     Title,
@@ -19,7 +19,7 @@ interface DocumentWithPDF {
 }
 
 export const Regulation: React.FC = () => {
-    const [impData, setImpData] = useState<IPMPModel | null>(null);
+    const [impData, setImpData] = useState<IPMP | null>(null);
     const [documents, setDocuments] = useState<DocumentWithPDF[]>([]);
 
     // Load data and documents from localStorage
@@ -28,7 +28,7 @@ export const Regulation: React.FC = () => {
         const storedDocs = localStorage.getItem("documents");
 
         if (storedData) {
-            setImpData(JSON.parse(storedData) as IPMPModel);
+            setImpData(JSON.parse(storedData) as IPMP);
         }
         if (storedDocs) {
             setDocuments(JSON.parse(storedDocs) as DocumentWithPDF[]);
@@ -49,12 +49,12 @@ export const Regulation: React.FC = () => {
             <Divider mb="md" />
 
             {/* If there's no data, show a fallback message */}
-            {!impData?.IPMP?.regCertifs?.length && (
+            {!impData?.regCertifs?.length && (
                 <Text>No regulatory certification data found.</Text>
             )}
 
             {/* Loop through each RegCert */}
-            {impData?.IPMP?.regCertifs.map((regCert) => (
+            {impData?.regCertifs.map((regCert) => (
                 <Card key={regCert.RegCertID} shadow="sm" padding="lg" radius="md" withBorder mb="xl">
                     <Title order={4}>{regCert.RegCertDescription}</Title>
                     <Divider my="md" />

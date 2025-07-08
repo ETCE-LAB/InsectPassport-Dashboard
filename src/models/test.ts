@@ -1,8 +1,4 @@
-// Root model
-export interface IPMPModel {
-    IPMP: IPMP;
-}
-
+// Root
 export interface IPMP {
     passID: string;
     creationDate: string;
@@ -10,23 +6,21 @@ export interface IPMP {
     insectProtein: InsectProtein;
     qualityAssessment: QualityAssessment;
     SustainabilityReq: SustainabilityReq;
-    regCertifs: RegCertif[];
+    regCertifs: RegulatoryCertificate[];
     supplyChain: SupplyChain;
 }
 
-// Insect Protein Section
+// Insect Protein
 export interface InsectProtein {
     insectName: string;
-    insectSpecies: InsectSpecies;
+    insectSpecies: {
+        genus: string;
+        species: string;
+    };
     batchID: string;
     batchSize: number;
     specInfo: SpecInfo;
-    rearInfo: RearInfo[];
-}
-
-export interface InsectSpecies {
-    genus: string;
-    species: string;
+    rearInfo: RearingInfo[];
 }
 
 export interface SpecInfo {
@@ -37,7 +31,7 @@ export interface SpecInfo {
     expiryDate: string;
 }
 
-export interface RearInfo {
+export interface RearingInfo {
     rearingMethodology: string[];
     rearingFacility: RearingFacility;
     rearingEnvCond: RearingEnvCond;
@@ -57,16 +51,16 @@ export interface RearingEnvCond {
     ventilation: string;
 }
 
-// Quality Assessment Section
+// Quality Assessment
 export interface QualityAssessment {
     assessmentID: string;
     assessDate: string;
-    procFacility: ProcFacility;
+    procFacility: ProcessingFacility;
     labTestReports: LabTestReport[];
     storeHandleReq: StoreHandleReq;
 }
 
-export interface ProcFacility {
+export interface ProcessingFacility {
     procFacilityID: string;
     location: string;
     approvalNumber: string;
@@ -90,7 +84,7 @@ export interface LabTestReport {
     amendment: string;
     labFacility: LabFacility;
     testParameters: TestParameter[];
-    documents: Document[];
+    documents?: Document[];
 }
 
 export interface LabFacility {
@@ -100,19 +94,27 @@ export interface LabFacility {
     approvalNumber: string;
 }
 
-// Some test parameters use different property names; both options are allowed.
-export interface TestParameter {
-    // Either form may be present in your JSON
+// Two different keys: paramID/parameterId, paramName/parameterName, method/testingMethod
+export type TestParameter = {
     paramID?: string;
-    parameterId?: string;
     paramName?: string;
-    parameterName?: string;
     testingMethod?: string;
+    parameterId?: string;
+    parameterName?: string;
     method?: string;
     result: number;
     unit: string;
+};
+
+export interface Document {
+    documentID: string;
+    documentType: string;
+    fileName: string;
+    filePath: string;
+    URL: string;
 }
 
+// Store & Label
 export interface StoreHandleReq {
     storeHandleReqID: string;
     storageCond: string;
@@ -128,18 +130,12 @@ export interface Labelling {
     intendedUse: string;
     netWeight: string;
     expiryDate: string;
-    manufacturerDetails: ManufacturerDetails;
-    importerDetails: ImporterDetails;
+    manufacturerDetails: CompanyDetails;
+    importerDetails: CompanyDetails;
     analyticalComponent: AnalyticalComponent;
 }
 
-export interface ManufacturerDetails {
-    name: string;
-    address: string;
-    email: string;
-}
-
-export interface ImporterDetails {
+export interface CompanyDetails {
     name: string;
     address: string;
     email: string;
@@ -153,15 +149,18 @@ export interface AnalyticalComponent {
     TotalBacterialCount: string;
 }
 
-// Sustainability Requirement Section
+// Sustainability
 export interface SustainabilityReq {
     susID: string;
     susDescription: string;
     resourceUse: ResourceUse;
     environmentalImpact: EnvironmentalImpact;
     circularity: Circularity;
-    socialAndEconomicImpact: SocialAndEconomicImpact;
-    SustReport: SustReport;
+    socialAndEconomicImpact: SocialEconomicImpact;
+    sustReport: SustainabilityReport;
+    lifecycleAssessmentReport: LifeCycleAssessmentReport;
+    chartsData: ChartsData;
+    systemBoundaryDescription: SystemBoundaryDescription[];
 }
 
 export interface ResourceUse {
@@ -177,17 +176,16 @@ export interface EnvironmentalImpact {
 }
 
 export interface Circularity {
-    wasteReductionStrategy: string;
     contributionCE: string;
 }
 
-export interface SocialAndEconomicImpact {
+export interface SocialEconomicImpact {
     labourStandards: string;
     costSavings: string;
     humanHealthMonitoring: string;
 }
 
-export interface SustReport {
+export interface SustainabilityReport {
     reportID: string;
     generatedDate: string;
     summary: string;
@@ -197,8 +195,53 @@ export interface SustReport {
     circularitySummary: string;
 }
 
-// Regulatory Certifications Section
-export interface RegCertif {
+export interface LifeCycleAssessmentReport {
+    goal: string;
+    boundaries: LcaBoundaries;
+    functionalUnit: string;
+    impactCategories: string;
+}
+
+export interface LcaBoundaries {
+    system: string;
+    geographical: string;
+    time: string;
+}
+
+export interface ChartsData {
+    carbonFootprint: ChartMetric;
+    ecosystem: ChartMetric;
+    resources: ChartMetric;
+    humanHealth: ChartMetric;
+    environmentalImpact: EnvironmentalImpactItem[];
+}
+
+export interface ChartMetric {
+    title: string;
+    subtitle: string;
+    text: string;
+    unit: string;
+    values: {
+        Rearing: number;
+        Production: number;
+        Transportation: number;
+    };
+}
+
+export interface EnvironmentalImpactItem {
+    category: string;
+    label: string;
+    value: number;
+    unit: string;
+}
+
+export interface SystemBoundaryDescription {
+    stage: string;
+    description: string;
+}
+
+// Regulatory Certificates
+export interface RegulatoryCertificate {
     RegCertID: string;
     RegCertDescription: string;
     complianceCategories: ComplianceCategory[];
@@ -225,56 +268,48 @@ export interface RegulatorySpecificity {
     details?: string;
 }
 
-export interface Document {
-    documentID: string;
-    documentType: string;
-    fileName: string;
-    filePath: string;
-    URL: string;
-}
-
-// Supply Chain Section
+// Supply Chain
 export interface SupplyChain {
     SupplyChainID: string;
     description: string;
-    actors: Actor[];
-    traceLog: TraceLog[];
+    actors: SupplyChainActor[];
+    traceLog: SupplyChainTrace[];
 }
 
-export interface Actor {
+export interface SupplyChainActor {
     actorId: string;
     name: string;
     type: string;
     location: string;
     contact: string;
-    activity: Activity[];
+    email: string;
+    activity: SupplyChainActivity[];
 }
 
-export interface Activity {
+export interface SupplyChainActivity {
     activityId: string;
     type: string;
     timestamp: string;
-    performedBy: string;
     documents?: Document[];
 }
 
-export interface TraceLog {
+export interface SupplyChainTrace {
     traceID: string;
     actorRole: string;
     companyName: string;
     location: string;
     coords: [number, number];
-    logistics: Logistics;
+    logistics: SupplyChainLogistics;
 }
 
-export interface Logistics {
-    mode: string;
-    carrier: string;
-    departureDate: string;
-    arrivalDate: string;
-    departureLocation: string;
-    departureCoords: [number, number];
-    arrivalLocation: string;
-    arrivalCoords: [number, number];
-    temperatureCond: string;
+export interface SupplyChainLogistics {
+    mode?: string;
+    carrier?: string;
+    departureDate?: string;
+    arrivalDate?: string;
+    departureLocation?: string;
+    departureCoords?: [number, number];
+    arrivalLocation?: string;
+    arrivalCoords?: [number, number];
+    temperatureCond?: string;
 }

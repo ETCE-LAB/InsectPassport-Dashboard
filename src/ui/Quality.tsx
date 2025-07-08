@@ -7,7 +7,7 @@ import {
     Divider,
     Table, Flex, Avatar, Button
 } from "@mantine/core";
-import {Document, IPMPModel} from "../models/test";
+import {Document, IPMP} from "../models/test";
 import {IconFile} from "@tabler/icons-react";
 
 /**
@@ -19,14 +19,14 @@ interface DocumentWithPDF {
     pdfUrl: string;
 }
 export const Quality: React.FC = () => {
-    const [ipmpData, setIpmpData] = useState<IPMPModel | null>(null);
+    const [ipmpData, setIpmpData] = useState<IPMP | null>(null);
     const [documents, setDocuments] = useState<DocumentWithPDF[]>([]);
 
     // Retrieve data from localStorage when component mounts
     useEffect(() => {
         const storedData = localStorage.getItem("data");
         if (storedData) {
-            const parsedData = JSON.parse(storedData) as IPMPModel;
+            const parsedData = JSON.parse(storedData) as IPMP;
             setIpmpData(parsedData);
         }
         const storedDocs = localStorage.getItem("documents");
@@ -37,7 +37,7 @@ export const Quality: React.FC = () => {
     }, []);
 
     // Extract the relevant part of the data
-    const qualityAssessment = ipmpData?.IPMP?.qualityAssessment;
+    const qualityAssessment = ipmpData?.qualityAssessment;
 
     // If no data or no qualityAssessment available, show a fallback message
     if (!qualityAssessment) {
@@ -171,10 +171,13 @@ export const Quality: React.FC = () => {
                                         Documents
                                     </Text>
 
+
                                     {report.documents.map((doc) => {
                                         // For each doc needed by the regulation, check in local "documents"
                                         return (
                                             <React.Fragment key={doc.documentID}>
+
+
                                                 {documents.map((storedDoc) => {
                                                     if (doc.documentID === storedDoc.doc.documentID) {
                                                         return (

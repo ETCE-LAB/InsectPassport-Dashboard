@@ -72,7 +72,7 @@ const AppRouter: React.FC = () => {
                     px="md"
                 >
                     <Flex align="center" gap="15px">
-                        <Image height={50} src={logo} alt="Logo" />
+                        <Image w={40} src={logo} alt="Logo" />
                         <Title order={1}>Digital InsectPassport</Title>
                     </Flex>
                     <Flex gap="sm">

@@ -11,6 +11,7 @@ import {
     Box, Button
 } from "@mantine/core";
 import { IconShip, IconTruck } from "@tabler/icons-react";
+import {IPMP} from "../models/test";
 
 // Types
 type Logistics = {
@@ -36,15 +37,6 @@ type TraceLogEntry = {
 
 interface Document {
     // define your Document fields here
-}
-interface IPMPModel {
-    IPMP: {
-        supplyChain: {
-            SupplyChainID: string;
-            description: string;
-            traceLog: TraceLogEntry[];
-        };
-    };
 }
 interface DocumentWithPDF {
     doc: Document;
@@ -83,7 +75,7 @@ const highlightMarkerIcon = L.icon({
 
 
 export const SupplyChain: React.FC = () => {
-    const [impData, setImpData] = useState<IPMPModel | null>(null);
+    const [impData, setImpData] = useState<IPMP | null>(null);
     const [documents, setDocuments] = useState<DocumentWithPDF[]>([]);
     // The currently-selected traceID (when user clicks on timeline)
     const [selectedTraceID, setSelectedTraceID] = useState<string | null>(null);
@@ -91,8 +83,10 @@ export const SupplyChain: React.FC = () => {
     useEffect(() => {
         const stringData = localStorage.getItem("data");
         if (stringData) {
-            const parsedData = JSON.parse(stringData) as IPMPModel;
+            const parsedData = JSON.parse(stringData) as IPMP;
             setImpData(parsedData);
+            const tracelogtemp = parsedData?.supplyChain.traceLog || [];
+            console.log(tracelogtemp)
         }
         const stringDocuments = localStorage.getItem("documents");
         if (stringDocuments) {
@@ -107,7 +101,7 @@ export const SupplyChain: React.FC = () => {
     };
 
     // Prepare the data
-    const traceLog = impData?.IPMP.supplyChain.traceLog || [];
+    const traceLog = impData?.supplyChain.traceLog || [];
 
     // Generate marker data directly from the embedded coords
     const markersData = traceLog.map(entry => ({
@@ -140,10 +134,10 @@ export const SupplyChain: React.FC = () => {
             <Flex align={"center"} gap={"15px"}>
                 <Title order={3}>Supply Chain</Title>
                 <Text>
-                    Id: {impData?.IPMP.supplyChain.SupplyChainID}
+                    Id: {impData?.supplyChain.SupplyChainID}
                 </Text>
                 <Text>
-                    {impData?.IPMP.supplyChain.description}
+                    {impData?.supplyChain.description}
                 </Text>
             </Flex>
 
