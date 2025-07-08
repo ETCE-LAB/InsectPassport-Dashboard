@@ -1,0 +1,677 @@
+{
+  "IPMP": {
+    "passID": "PS-2085-01",
+    "creationDate": "2025-01-01",
+    "validityPeriod": "2027-01-01",
+    "insectProtein": {
+      "insectName": "Black Soldier Fly",
+      "insectSpecies": {
+        "genus": "Hermetia",
+        "species": "illucens"
+      },
+      "batchID": "BSF-001",
+      "batchSize": 500.5,
+      "specInfo": {
+        "feedType": "Organic Waste",
+        "feedSource": ["Vegetable Scraps", "Fruit Peels"],
+        "manufacturingDate": "2024-12-27",
+        "feedConversionRatio": 3,
+        "expiryDate": "2026-12-31"
+      },
+      "rearInfo": [
+        {
+          "rearingMethodology": ["Vertical Farming", "Controlled Climate"],
+          "rearingFacility": {
+            "location": "Province, China",
+            "approvalNumber": "3700AF307",
+            "standards": "Compliant with Regulation EC No. 1069/2009"
+          },
+          "rearingEnvCond": {
+            "temperature": "28°C",
+            "humidity": "70%",
+            "ventilation": "Automated"
+          },
+          "diseaseMonitoring": "Regular health checks",
+          "biosecurityMeasures": "Strict entry regulations"
+        }
+      ]
+    },
+    "qualityAssessment": {
+      "assessmentID": "QA-2025-001",
+      "assessDate": "2025-02-27",
+      "procFacility": {
+        "procFacilityID": "PF-001",
+        "location": "Mannheim, Germany",
+        "approvalNumber": "PF-56789",
+        "standards": "ISO 22000",
+        "processingMethods": [
+          {
+            "procMethodID": "PM-001",
+            "name": "Heat Treatment",
+            "temperature": "80°C",
+            "time": "30 mins",
+            "mealFormat": "Powder"
+          },
+          {
+            "procMethodID": "PM-002",
+            "name": "Freeze Drying",
+            "temperature": "-40°C",
+            "time": "12 hours",
+            "mealFormat": "Granules"
+          }
+        ]
+      },
+      "labTestReports": [
+        {
+          "testID": "LT-1001",
+          "testName": "Nutritional Composition Test",
+          "testStartDate": "2024-08-29",
+          "testEndDate": "2024-09-18",
+          "amendment": "Enter re-analysis result of Cysteine and Total amino acids",
+          "labFacility": {
+            "labID": "LAB-001",
+            "labName": "SGS India Pvt. Ltd.",
+            "labLocation": "India",
+            "approvalNumber": "CG24-021786.001-A-R01"
+          },
+          "testParameters": [
+            {
+              "paramID": "TP-001",
+              "paramName": "Tryptophan",
+              "testingMethod": "SO-IN-MUL-TE-027 By HPLC",
+              "result": 0.10,
+              "unit": "g/100 g"
+            },
+            {
+              "paramID": "TP-002",
+              "paramName": "Total amino acids",
+              "testingMethod": "SO-IN-MUL-TE-039 By HPLC",
+              "result": 44.15,
+              "unit": "g/100 g"
+            },
+            {
+              "paramId": "TP-003",
+              "paramName": "Crude Fiber",
+              "testingMethod": "ISO 6865",
+              "result": 9.37,
+              "unit": "g/100 g"
+            },
+            {
+              "paramId": "TP-004",
+              "paramName": "Acid Insoluble Ash",
+              "testingMethod": "ISO 5985",
+              "result": 0.31,
+              "unit": "g/100 g"
+            }
+          ],
+          "documents": [
+            {
+              "documentID": "DOC-5001",
+              "documentType": "PDF",
+              "fileName": "Lab_Test_Report_AAandDigestibility.PDF",
+              "filePath": "/files/Lab Test Report-AAandDigestibility.pdf",
+              "URL": "https://bucket-name.s3.amazonaws.com/documents/Lab_Test_Report-AAandDigestibility_22300000409825001.pdf"
+            }
+          ]
+        },
+        {
+          "testID": "LT-1002",
+          "testName": "Contaminant Test",
+          "testStartDate": "2024-09-20",
+          "testEndDate": "2024-09-22",
+          "amendment": "none",
+          "labFacility": {
+            "labID": "LAB-020",
+            "labName": "SGS India Pvt. Ltd.",
+            "labLocation": "India",
+            "approvalNumber": "CG24-021786.003"
+          },
+          "testParameters": [
+            {
+              "paramID": "TP-001",
+              "paramName": "Salmonella",
+              "testingMethod": "ISO 6579-1:2017",
+              "result": 0,
+              "unit": "g/25 g"
+            },
+            {
+              "paramID": "TP-002",
+              "paramName": "Enterobacteriaceae",
+              "testingMethod": "ISO 6579-1:2017",
+              "result": 4.15,
+              "unit": "CFU/g"
+            }
+          ]
+        }
+      ],
+      "storeHandleReq": {
+        "storeHandleReqID": "SHR-1001",
+        "storageCond": "Ambient during transport",
+        "packaging": "Sealed cartons with appropriate labeling",
+        "labelling": {
+          "labellingID": "LB-001",
+          "productName": "Dried Mealworms",
+          "intendedUse": "Pet Food",
+          "netWeight": "5kg",
+          "expiryDate": "2026-02-27",
+          "manufacturerDetails": {
+            "name": "ARTHRO BIOTECH PVT Ltd.",
+            "address": "K.V.RANGAREDDY 500019, Telangana, India",
+            "email": "support@arthrobiotech.com"
+          },
+          "importerDetails": {
+            "name": "BSF CYCLE GMBH",
+            "address": "Buehlstrasse 4, Göttingen, Germany",
+            "email": "hampe@abshcycle.com"
+          },
+          "analyticalComponent": {
+            "ProteinContent": "50%",
+            "FatContent": "25%",
+            "Salmonella": "not present",
+            "Lead": "0.02 mg/kg",
+            "TotalBacterialCount": "4.15 CFU/g"
+          }
+        },
+        "handlingRequirement": "EU-compliant labeling - 'Not for Human Consumption'",
+        "shelfExpirationPeriod": "12 months at room temperature"
+      }
+    },
+    "SustainabilityReq": {
+      "susID": "S001",
+      "susDescription": "Sustainability measures for production",
+      "resourceUse": {
+        "waterUsage": "0.0029 m³",
+        "waterFootprint": "0.0029 m³ water consumption per kg",
+        "energyUse": "2 kWh per kg BSF production"
+      },
+      "environmentalImpact": {
+        "carbonFootprint": "1.17 kg CO2 eq. per kg",
+        "landUse": "",
+        "wasteManagement": "Recycling of insects by-products reported"
+      },
+      "circularity": {
+        "contributionCE": "3 kg of biomass is used as feed to produce every 1 kg of BSF"
+      },
+      "socialAndEconomicImpact": {
+        "labourStandards": "GB/T 45001-2020, the Chinese equivalent of ISO 45001:2018, ensures that compliant operations maintain high safety and health standards.",
+        "costSavings": "20% reduction in cost (inputs from BSF Cycle)",
+        "humanHealthMonitoring": "Regular safety assessments"
+      },
+      "sustReport": {
+        "reportID": "SR202501",
+        "generatedDate": "2025-03-10",
+        "summary": "This report provides an overview of sustainability performance metrics per kg of product .",
+        "resourceUseSummary": "Water usage: 0.0029 m³, waterFootprint: 0.0029 m³ water consumption per kg, Energy use: 200 kWh",
+        "environmentalImpactSummary": "Carbon footprint: 1.17 kg CO2 eq. per kg, Land use: lacking because of the ELCD database, Waste managed through recycling.",
+        "socialEconomicImpactSummary": "Labour standards: ISO 45001:2018 compliant, Cost savings: 20% reduction.",
+        "circularitySummary": "50% of materials are recycled, Optimized packaging to minimize waste."
+      },
+      "lifecycleAssessmentReport": {
+      "goal": "Evaluate the environmental impact of obtaining 100 grams of protein from the BSF Cycle insect product imported from China.",
+      "boundaries": {
+        "system": "This system includes three stages: Rearing, Production and Transportation.",
+        "geographical": "The analysis is for BSF production in Germany and key production regions in Asia (China), including the associated transportation impact on the BSF Cycle warehouse.",
+        "time": "Production data reflect operations between 2023 and 2025."
+      },
+      "functionalUnit": "The functional unit is defined as 100 grams of protein derived from BSF products imported from China.",
+      "impactCategories": "Carbon Footprint, Human Health, Ecosystem, Resources"
+      },
+      "chartsData": {
+        "carbonFootprint": {
+          "title": "Carbon Footprint",
+          "subtitle": "Global Warming Potential",
+          "text": "Total of 0.24 kg CO2 emission per 100g of protein from BSF Cycle product.",
+          "unit": "%",
+          "values": {
+            "Rearing": 22.81,
+            "Production": 68.44,
+            "Transportation": 8.75
+          }
+        },
+        "ecosystem": {
+          "title": "Ecosystem",
+          "subtitle": "Terrestrial ecotoxicity",
+          "text": "Total of 0.17 kg 1,4-DCB eq terrestrial ecotoxicity per 100g of protein from BSF Cycle product, indicating impact on ecosystem.",
+          "unit": "%",
+          "values": {
+            "Rearing": 24.50,
+            "Production": 73.49,
+            "Transportation": 2.01
+          }
+        },
+        "resources": {
+          "title": "Resources",
+          "subtitle": "Fossil resource scarcity",
+          "text": "Total of 0.06 kg oil eq. fossil resource scarcity per 100g of protein from BSF Cycle product, indicating impact on resources.",
+          "unit": "%",
+          "values": {
+            "Rearing": 22.69,
+            "Production": 68.08,
+            "Transportation": 9.23
+          }
+        },
+        "humanHealth": {
+          "title": "Human Health",
+          "subtitle": "Ionizing radiation",
+          "text": "Total of 0.1 kg Co-60 eq. ionizing radiation per 100g of protein from BSF Cycle product, indicating impact on human health.",
+          "unit": "%",
+          "values": {
+            "Rearing": 24.97,
+            "Production": 74.89,
+            "Transportation": 0.14
+          }
+        },
+        "environmentalImpact": [
+          {
+            "category": "Carbon Footprint",
+            "label": "Global warming kg CO2 eq",
+            "value": 0.234141806,
+            "unit": "kg CO2 eq."
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Freshwater ecotoxicity kg 1,4-DCB",
+            "value": 0.00003229861882454,
+            "unit": "kg 1,4-DCB"
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Marine ecotoxicity kg 1,4-DCB",
+            "value": 0.00017107471566,
+            "unit": "kg 1,4-DCB"
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Terrestrial ecotoxicity kg 1,4-DCB",
+            "value": 0.168168196,
+            "unit": "kg 1,4-DCB"
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Freshwater eutrophication kg P eq",
+            "value": 6.591061706e-7,
+            "unit": "kg P eq."
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Marine eutrophication kg N eq",
+            "value": 0.00000345721591778,
+            "unit": "kg N eq."
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Terrestrial acidification kg SO2 eq",
+            "value": 0.00117525254572,
+            "unit": "kg SO2 eq."
+          },
+          {
+            "category": "Ecosystem",
+            "label": "Ozone formation, Terrestrial ecosystems kg Nox eq",
+            "value": 0.00071090823232,
+            "unit": "kg Nox eq."
+          },
+          {
+            "category": "Human Health",
+            "label": "Ionizing radiation kBq Co-60 eq",
+            "value": 0.10136346783292,
+            "unit": "kBq Co-60 eq."
+          },
+          {
+            "category": "Human Health",
+            "label": "Human carcinogenic toxicity kg 1,4-DCB",
+            "value": 0.0001308403574254,
+            "unit": "kg 1,4-DCB"
+          },
+          {
+            "category": "Human Health",
+            "label": "Human non-carcinogenic toxicity kg 1,4-DCB",
+            "value": 0.01632121956938,
+            "unit": "kg 1,4-DCB"
+          },
+          {
+            "category": "Human Health",
+            "label": "Fine particulate matter formation kg PM 2.5 eq.",
+            "value": 0.00034913798408,
+            "unit": "kg PM 2.5 eq."
+          },
+          {
+            "category": "Human Health",
+            "label": "Ozone formation, Human Health kg Nox eq",
+            "value": 0.00070654486542,
+            "unit": "kg Nox eq."
+          },
+          {
+            "category": "Human Health",
+            "label": "Stratospheric ozone depletion kg CFC-11 eq",
+            "value": 1.3252729917e-7,
+            "unit": "kg CFC-11 eq."
+          },
+          {
+            "category": "Resources",
+            "label": "Land use m2a crop eq",
+            "value": 0,
+            "unit": "m2a crop eq."
+          },
+          {
+            "category": "Resources",
+            "label": "Fossil resource scarcity kg oil eq",
+            "value": 0.060345076,
+            "unit": "kg oil eq."
+          },
+          {
+            "category": "Resources",
+            "label": "Mineral resource scarcity kg Cu eq",
+            "value": 0.0000276286750582,
+            "unit": "kg Cu eq."
+          },
+          {
+            "category": "Resources",
+            "label": "Water consumption m3",
+            "value": 0.0005953451931204,
+            "unit": "m3"
+          }
+        ]
+      },
+      "systemBoundaryDescription": [
+        {
+          "stage": "Rearing",
+          "description": "During the rearing process, BSF are cultivated in climate-controlled environments with warm and humid conditions to create optimal settings for rapid growth. The larvae are fed with agricultural by-products and other side streams, which are considered waste materials. Therefore, according to the Module D principle in LCA, the environmental impacts of the feed are not attributed to this lifecycle of the BSF product. In addition, based on actual farm operations, water usage during the rearing phase is minimal and can be considered negligible. As a result, water consumption in this stage is not taken into account."
+        },
+        {
+          "stage": "Production",
+          "description": "At this stage, the BSF have been reared to the desired mature size to ensure optimal nutrient content and biomass. Subsequently, a series of necessary post-processing steps are carried out, including pre-drying and drying, to remove excess moisture and facilitate subsequent storage, transportation, and further processing. It should be noted that the final packaging of the product is not included in this stage."
+        },
+        {
+          "stage": "Transportation",
+          "description": "This stage includes the environmental impact of transporting the finished BSF protein products from production sites in China (CHN) to BSF Cycle distribution warehouses, accounting for both local and international logistics. The international segment involves maritime shipping from China to a port in Germany, followed by road transportation by truck from the German port to the BSF Cycle warehouse."
+        }
+      ]
+    },
+    "regCertifs": [
+      {
+        "RegCertID": "CERT-12345",
+        "RegCertDescription": "EU Food/Feed adherance Certification",
+        "complianceCategories": [
+          {
+            "complianceID": "COMP-001",
+            "complianceName": "Processing",
+            "complianceDescription": "Ensures compliance with EU food safety processing regulations",
+            "regulations": [
+              {
+                "regulationID": "REG-1001",
+                "regulationName": "EC No 1069/2009 and EC No 142/2011",
+                "regulationIssuer": "European Commission",
+                "complianceDate": "2021-07-01",
+                "regulatorySpecificities": [
+                  {
+                    "requirement": "Heat treatment must be at least 90°C.",
+                    "details": "High temperature is required to eliminate harmful pathogens"
+                  }
+                ],
+                "documents": [
+                  {
+                    "documentID": "DOC-1001",
+                    "documentType": "PDF",
+                    "fileName": "veterinary_health_certificate.pdf",
+                    "filePath": "/files/veterinary_health_certificate.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/veterinary_health_certificate_22300000409825001.pdf"
+                  },
+                  {
+                    "documentID": "DOC-1002",
+                    "documentType": "PDF",
+                    "fileName": "facilit_audit_certificate.pdf",
+                    "filePath": "/files/facilit_audit_certificate.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/facilit_audit_certificate_25480000409825001.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "complianceID": "COMP-002",
+            "complianceName": "Material Classification",
+            "complianceDescription": "Ensures insects and feedstock comply to EU regulations",
+            "regulations": [
+              {
+                "regulationID": "REG-2001",
+                "regulationName": "EC No 1069/2009 Articles 8, 10, 11",
+                "regulationIssuer": "European Commission",
+                "complianceDate": "2022-05-10",
+                "regulatorySpecificities": [
+                  {
+                    "requirement": "Category-3 material standards",
+                    "details": "Prohibition of using food waste from restuarants, even plant-based scraps."
+                  }
+                ],
+                "documents": [
+                  {
+                    "documentID": "DOC-2001",
+                    "documentType": "PDF",
+                    "fileName": "material_compliance_certificate.pdf",
+                    "filePath": "/files/material_compliance_certificate.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/material_compliance_certificate_10580000409825001.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "complianceID": "COMP-003",
+            "complianceName": "Trade and Logistics",
+            "complianceDescription": "Ensures transportation comply to EU regulations",
+            "regulations": [
+              {
+                "regulationID": "REG-1056",
+                "regulationName": "EC No 1069/2009",
+                "regulationIssuer": "European Commission",
+                "complianceDate": "2020-08-10",
+                "regulatorySpecificities": [
+                  {
+
+                  }
+                ],
+                "documents": [
+                  {
+                    "documentID": "DOC-3001",
+                    "documentType": "PDF",
+                    "fileName": "certificate_of_origin.pdf",
+                    "filePath": "/files/certificate_of_origin.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/certificate_of_origin_10002000409825001.pdf"
+                  },
+                  {
+                    "documentID": "DOC-3002",
+                    "documentType": "PDF",
+                    "fileName": "bill_of_landing.pdf",
+                    "filePath": "/files/bill_of_landing.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/bill_of_landing_3052000409825001.pdf"
+                  },
+                  {
+                    "documentID": "DOC-3003",
+                    "documentType": "PDF",
+                    "fileName": "custom_clearance_invoice.pdf",
+                    "filePath": "/files/custom_clearance_invoice.pdf",
+                    "URL": "https://bucket-name.s3.amazonaws.com/documents/custom_clearance_invoice_311100409825001.pdf"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "supplyChain": {
+      "SupplyChainID": "SC-2025-001",
+      "description": "Tracked from farm to market",
+      "actors": [
+        {
+          "actorId": "A001",
+          "name": "Insect Farm",
+          "type": "Rearer",
+          "location": "Province, China",
+          "contact": "+86 138 0000 1234",
+          "email": "xxx@insectfarm.in",
+          "activity": [
+            {
+              "activityId": "ACT001",
+              "type": "Rear",
+              "timestamp": "2025-01-01T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "actorId": "A002",
+          "name": "Pengfei Pet Food Co., Ltd.",
+          "type": "Exporter",
+          "location": "Qingdao, China",
+          "contact": "+86 139 8888 5678",
+          "email": "xxx@pengfi.cn",
+          "activity": [
+            {
+              "activityId": "ACT002",
+              "type": "Export",
+              "timestamp": "2025-01-01T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "actorId": "A003",
+          "name": "COSCO Shipping",
+          "type": "Transporter",
+          "location": "China",
+          "contact": "+86 188 5555 2468",
+          "email": "xxx@cosco.cn",
+          "activity":[
+            {
+              "activityId": "ACT003",
+              "type": "Transport",
+              "timestamp": "2025-01-15T10:00:00Z",
+              "documents": [
+                {
+                  "documentID": "DOC-1001",
+                  "documentType": "PDF",
+                  "fileName": "bill_of_landing.pdf",
+                  "filePath": "/files/bill_of_landing.pdf",
+                  "URL": "https://bucket-name.s3.amazonaws.com/documents/bill_of_landing_3052000409825001.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "actorId": "A004",
+          "name": "BSF Cycle GmbH",
+          "type": "Importer",
+          "location": "Germany",
+          "contact": "+49 551 270 70 114",
+          "email": "hampe@bsfcycle.com",
+          "activity":[
+            {
+              "activityId": "ACT004",
+              "type": "Import Clearance",
+              "timestamp": "2025-01-26T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "actorId": "A005",
+          "name": "Pet Food Processor GmbH",
+          "type": "Processor",
+          "location": "Germany",
+          "contact": "+49 621 1234567",
+          "email": "support@pfproces.de",
+          "activity":[
+            {
+              "activityId": "ACT005",
+              "type": "Processing",
+              "timestamp": "2025-02-12T08:00:00Z"
+            }
+          ]
+        }
+      ],
+      "traceLog": [
+        {
+          "traceID": "TRACE-20250310-001",
+          "actorRole": "Rearer",
+          "companyName": "Insect Farm",
+          "location": "Province, China",
+          "coords": [30.9756, 112.2707],
+          "logistics": {
+            "mode": "Truck",
+            "carrier": "Chinese DHL",
+            "departureDate": "2025-01-01",
+            "arrivalDate": "2025-01-03",
+            "departureLocation": "Province, China",
+            "departureCoords": [30.9756, 112.2707],
+            "arrivalLocation": "Shanghai Port, China",
+            "arrivalCoords": [31.2304, 121.4737],
+            "temperatureCond": "Maintained at 5°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-002",
+          "actorRole": "Exporter",
+          "companyName": "Pengfei Pet Food Co., Ltd.",
+          "location": "Shanghai, China",
+          "coords": [31.2304, 121.4737],
+          "logistics": {
+            "mode": "Sea Freight",
+            "carrier": "COSCO Shipping",
+            "departureDate": "2025-01-01",
+            "arrivalDate": "2025-01-26",
+            "departureLocation": "Shanghai Port, China",
+            "departureCoords": [31.2304, 121.4737],
+            "arrivalLocation": "Hamburg Port, Germany",
+            "arrivalCoords": [53.5461, 9.9661],
+            "temperatureCond": "Maintained at 5°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-003",
+          "actorRole": "Importer",
+          "companyName": "BSF Cycle GmbH",
+          "location": "Hamburg, Germany",
+          "coords": [53.5461, 9.9661],
+          "logistics": {
+            "mode": "Truck",
+            "carrier": "DHL Logistics",
+            "departureDate": "2025-01-26",
+            "arrivalDate": "2025-01-28",
+            "departureLocation": "Hamburg Port, Germany",
+            "departureCoords": [53.5461, 9.9661],
+            "arrivalLocation": "Hamburg Warehouse, Germany",
+            "arrivalCoords": [53.55, 10.0],
+            "temperatureCond": "Refrigerated at 4°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-004",
+          "actorRole": "Importer",
+          "companyName": "BSF Cycle GmbH",
+          "location": "Hamburg Warehouse, Germany",
+          "coords": [53.55, 10.0],
+          "logistics": {
+            "mode": "Truck",
+            "carrier": "DHL Logistics",
+            "departureDate": "2025-01-26",
+            "arrivalDate": "2025-01-28",
+            "departureLocation": "Hamburg Warehouse, Germany",
+            "departureCoords":  [53.55, 10.0],
+            "arrivalLocation": "Pet Food Processor GmbH",
+            "arrivalCoords": [49.4875, 8.4660],
+            "temperatureCond": "Refrigerated at 4°C"
+          }
+        },
+        {
+          "traceID": "TRACE-20250310-005",
+          "actorRole": "Processor",
+          "companyName": "Pet Food Processor GmbH",
+          "location": "Mannheim, Germany",
+          "coords": [49.4875, 8.4660],
+          "logistics": {
+            
+          }
+        }
+      ]
+    }
+  }
+}
