@@ -45,10 +45,20 @@ The setup and deployment guide for a JavaScript project (React app):
 # Repository Structure
 ## /demo/
 This folder contains the default dataset folder (`dashboard_dataset`) required to use the PoC fully.
-- The dashboard expects the user to upload this folder
+- The dashboard expects the user to upload this folder.
+- Then, the user can navigate through all the tabs that would have been populated with data from the folder previously uploaded.
+### Interface Overview
+Matching the DPP model, the dashboard has multiple interactive tabs:
+| **Tab**                  | **Purpose**                                                                 |
+|--------------------------|------------------------------------------------------------------------------|
+| `Home`                   | Overview of the DPP general information.              |
+| `Product Passport`       | Display important information about insect species, substrate, processing method, batch ID, high-level sustainability values, and general traceability information. |     
+| `Supply Chain`           | Give detailed information concerning the traceability and transportation of the batch.                       |
+| `Sustainability`         | CO₂ footprint, land use, and LCA indicators.                                 |
+
   
 ## /figures/ 
-All the diagrams cited in the paper:
+All the diagrams cited in the paper:     
 - **`data_model_DPP_insect_meal_complete.pdf`**  
   High-level overview of the insect meal's digital product passport (DPP), showcasing the core information categories and related hierarchical levels.
 - **`data_model_DPP_insect_meal.pdf`**  
