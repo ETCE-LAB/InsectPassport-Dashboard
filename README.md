@@ -46,7 +46,7 @@ The setup and deployment guide for a JavaScript project (React app):
 ## /demo/
 This folder contains the default dataset folder (`dashboard_dataset`) required to use the PoC fully.
 - The dashboard expects the user to upload this folder.
-- Then, the user can navigate through all the tabs that would have been populated with data from the folder previously uploaded.
+- Then, the user can navigate through all the tabs that have been populated with data from the previously uploaded folder.
 ### Interface Overview
 Matching the DPP model, the dashboard has multiple interactive tabs:
 | **Tab**                  | **Purpose**                                                                 |
@@ -54,7 +54,8 @@ Matching the DPP model, the dashboard has multiple interactive tabs:
 | `Home`                   | Overview of the DPP general information.              |
 | `Product Passport`       | Display important information about insect species, substrate, processing method, batch ID, high-level sustainability values, and general traceability information. |     
 | `Supply Chain`           | Give detailed information concerning the traceability and transportation of the batch.                       |
-| `Sustainability`         | CO₂ footprint, land use, and LCA indicators.                                 |
+| `Regulation`             | Includes all the detailed information to prove regulatory compliance with attached documents.                                 |
+| `Sustainability`         | Report on important parameters like CO₂ footprint, land use, LCA indicators, and LCA report. 
 
   
 ## /figures/ 
